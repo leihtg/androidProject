@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/trade_detail_record"
+            android:title="成交明细" />
+        <item
+            android:id="@+id/trade_sum_record"
+            android:title="成交汇总" />
+        <item
+            android:id="@+id/money_in_record"
+            android:title="入金记录" />
+        <item
+            android:id="@+id/money_out_record"
+            android:title="出金记录" />
+        <item
+            android:id="@+id/money_record_record"
+            android:title="资金记录" />
+        <item
+            android:id="@+id/operate_log_record"
+            android:title="操作日志" />
+        <!--<item-->
+        <!--android:id="@+id/school"-->
+        <!--android:title="在线学堂"/>-->
+        <!--<item-->
+        <!--android:id="@+id/money_in"-->
+        <!--android:title="入金"/>-->
+        <item
+            android:id="@+id/money_out"
+            android:title="出金" />
+        <item
+            android:title="修改密码"
+            android:id="@+id/modify_pwd" />
+        <item
+            android:id="@+id/logout"
+            android:title="退出" />
+
+    </group>
+
+</menu>

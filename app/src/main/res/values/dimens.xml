@@ -1,0 +1,64 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">80dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">5dp</dimen>
+    <dimen name="navHeader">40dp</dimen>
+    <dimen name="view_small_padding">1dp</dimen>
+    <dimen name="view_padding">6dp</dimen>
+
+
+    <!--基础字体大小-->
+
+    <dimen name="theme_textsize_big">17sp</dimen>
+    <dimen name="theme_textsize_normal">14sp</dimen>
+    <dimen name="theme_textsize_small">12sp</dimen>
+    <dimen name="theme_textsize_tiny">10sp</dimen>
+
+    <!--aactionBar的统一高度-->
+    <!--但是好像并没有什么用，目前-->
+    <dimen name="actionBarHead">50dp</dimen>
+    <!--登录页面的图片大小-->
+    <dimen name="img_login">30dp</dimen>
+
+    <!--主页面-下方radioButton-字体大小-->
+    <dimen name="tv_home_rbtn_size">10sp</dimen>
+
+    <!--编辑框内字体大小-->
+    <dimen name="tv_edt_size">14sp</dimen>
+    <!--K线页面按钮字体大小-->
+    <dimen name="tv_rbtn_size">14sp</dimen>
+    <!--五档页面按钮字体大小-->
+    <dimen name="tv_deputeList_size">10sp</dimen>
+
+    <!--************行情页面*************-->
+
+    <!--行情页面页面名称字体大小-->
+    <dimen name="tv_priceList_size">14sp</dimen>
+    <!--行情页面页面价格数据字体大小-->
+    <dimen name="tv_priceList_price_size">17sp</dimen>
+    <!--行情页面页面spinner大小-->
+    <dimen name="tv_toolbar_size">16sp</dimen>
+
+
+    <!--************公告列表*************-->
+    <!--公告列表标题-->
+    <dimen name="tv_notice_list_title_size">16sp</dimen>
+    <dimen name="tv_notice_list_time_size">12sp</dimen>
+    <!--公告详情列表标题-->
+    <dimen name="tv_notice_title_size">20sp</dimen>
+    <dimen name="tv_notice_time_size">15sp</dimen>
+
+    <!--************报表页面*************-->
+
+    <dimen name="tv_list_time">10sp</dimen>
+    <dimen name="tv_list_header">14sp</dimen>
+    <dimen name="tv_list_content">13sp</dimen>
+    <dimen name="tv_list_bigContent">16sp</dimen>
+
+
+</resources>

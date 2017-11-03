@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dianshi.matchtrader">
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <!--拨打电话的权限-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!--检测联网方式，区分用户设备使用的是2G、3G或是WiFi-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--获取用户设备的IMEI，通过IMEI和mac来唯一的标识用户-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许应用程序联网，以便向我们的服务器端发送数据-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--获取用户设备的mac地址，在平板设备上，无法通过imei标示设备，我们会将mac地址作为用户的唯一标识-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--允许应用程序改变网络状态-->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!--允许应用程序改变WIFI连接状态-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+
+    <!--全局捕获异常信息-->
+    <application
+        android:name=".catchexception.CrashApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:allowBackup="false"
+        android:theme="@style/AppTheme">
+
+        <!--友盟APPKEY-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="573d851d67e58e973b000507" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID" />
+
+        <!-- ###################注册SDK使用的Activity###################### -->
+        <!--友盟分享分享编辑页-->
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <!--友盟分享5.0-->
+        <!--<activity-->
+        <!--android:name="com.umeng.socialize.editorpage.ShareActivity"-->
+        <!--android:theme="@style/Theme.UMDefault"-->
+        <!--android:excludeFromRecents="true"/>-->
+
+
+        <!--微信分享-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.ResetPasswordActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.NoticeDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.OperateLogActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.TradeSumRecordActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.MoneyInRecordActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.MoneyOutRecordActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.MoneyInActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.MoneyOutActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.StockDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.ListStockDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.TradeDetailRecordActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.MoneyLogRecordActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.AddChooseActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.SchoolActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.OfficialWebsiteActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.OpenAccountActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.CustomerServiceActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.ForgetPasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.DisclaimOfLiabilityActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.UserInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.IntroduceActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.AboutSoftWareActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.NewProductPostListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.NewProductPostDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.NewProductPostResultListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".activity.NewProductPostDeputeListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

@@ -1,0 +1,333 @@
+<resources>
+
+    <!--
+    colorPrimary 对应ActionBar的颜色。
+    colorPrimaryDark对应状态栏的颜色
+    colorAccent 对应EditText编辑时、RadioButton选中、CheckBox等选中时的颜色。
+-->
+    <!-- Application的主题 -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="@android:attr/actionBarSize">@dimen/actionBarHead</item>
+    </style>
+
+    　　
+    <!--透明背景色activity-->
+    <style name="AppTheme.Transparent" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="@android:attr/actionBarSize">@dimen/actionBarHead</item>
+
+        　　
+    </style>
+
+    <!--activity设置无ActionBar-->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="@android:attr/actionBarSize">@dimen/actionBarHead</item>
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="@android:attr/actionBarSize">@dimen/actionBarHead</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <!--******************************对话框和ppw的样式 start*****************************************************-->
+    <!-- ppw动画效果，从底部出现和退出-->
+    <style name="PopupBottomAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <style name="progress_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!--Dialog的windowFrame框为无 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否漂现在activity上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 是否半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <style name="waitingDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <!--******************************对话框和ppw的样式  end*****************************************************-->
+
+    <style name="width_0_height_wrap_weight_1">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="width_wrap_height_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <!--radioButton 通用的样式-->
+    <style name="rbtn" parent="width_0_height_wrap_weight_1">
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <!--主框架下方radioButton的样式-->
+    <style name="tab_rb_style" parent="rbtn">
+        <item name="android:gravity">center_horizontal|bottom</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:textSize">@dimen/tv_home_rbtn_size</item>
+        <item name="android:textColor">@drawable/tab_selector_text</item>
+    </style>
+
+
+    <!--******************************报表数据格式 start*****************************************************-->
+
+    <!--列表数据展示列上方头部列的样式-->
+    <style name="header_tv_style" parent="width_0_height_wrap_weight_1">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/tv_list_header</item>
+    </style>
+
+
+    <!--列表数据显示时间-->
+    <style name="tv_list_time" parent="width_wrap_height_wrap">
+        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/tv_list_time</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!--列表数据显示内容-->
+    <style name="tv_list_content" parent="width_0_height_wrap_weight_1">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/tv_list_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!--列表数据显示重要内容-->
+    <style name="tv_list_bigContent" parent="width_0_height_wrap_weight_1">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/tv_list_bigContent</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!--******************************报表数据格式 end*****************************************************-->
+
+
+    <!--******************************公告列表 start*****************************************************-->
+
+
+    <!--列表数据显示重要内容-->
+    <style name="tv_notice_list_title" parent="width_wrap_height_wrap">
+        <item name="android:textColor">#383838</item>
+        <item name="android:textSize">@dimen/tv_notice_list_title_size</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!--列表数据显示重要内容-->
+    <style name="tv_notice_list_time" parent="width_wrap_height_wrap">
+        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:textSize">@dimen/tv_notice_list_time_size</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!--******************************公告列表 end*****************************************************-->
+
+
+    <!--行情碎片上方头部列的样式-->
+    <style name="header_price_tv_style">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/tv_priceList_size</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+    <!--行情碎片listview中列数据的样式-->
+    <style name="price_tv_style">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/tv_priceList_price_size</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+
+    <!--交易碎片上方radioButton的样式-->
+    <style name="trade_rb_style" parent="rbtn">
+        <item name="android:textColor">@drawable/rbtn_selector_text_trade</item>
+        <item name="android:textSize">@dimen/tv_rbtn_size</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:background">@color/bg_stock_btn_unchecked</item>
+    </style>
+
+    <!--K线图详情radiogroup-->
+    <style name="StockDetail_rb_style" parent="rbtn">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/rbtn_selector_stock_detail</item>
+        <item name="android:textColor">@drawable/rbtn_selector_text_trade</item>
+        <item name="android:textSize">@dimen/tv_rbtn_size</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <!--K线图详情btn-->
+    <style name="StockDetail_btn_style" parent="rbtn">
+        <item name="android:textColor">@color/tv_stock_btn</item>
+        <item name="android:textSize">@dimen/tv_rbtn_size</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:background">@color/bg_stock_btn_unchecked</item>
+    </style>
+
+
+    <!--K线图快买快买页面EditText价格-->
+    <style name="stockDetail_edt_style" parent="width_0_height_wrap_weight_1">
+        <item name="android:padding">15dp</item>
+        <item name="android:textColorHint">@color/tv_name</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@null</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:textSize">@dimen/tv_edt_size</item>
+    </style>
+
+    <!--K线图快买快买页面EditText数量-->
+    <style name="stockDetail_edt_count_style" parent="stockDetail_edt_style">
+        <item name="android:inputType">number</item>
+    </style>
+
+
+    <!--K线图快买快买页面字体-->
+    <style name="stockDetail_ppw_tv_style" parent="width_wrap_height_wrap">
+        <item name="android:textColor">@color/tv_name</item>
+        <item name="android:textSize">@dimen/tv_edt_size</item>
+    </style>
+
+
+    <!--K线图各种按钮的字体-->
+    <style name="stockDetail_tv_btn" parent="width_wrap_height_wrap">
+        <item name="android:textSize">@dimen/tv_edt_size</item>
+        <item name="android:textColor">@color/tv_stock_btn</item>
+    </style>
+
+
+    <!--交易页面买入EditText-->
+    <style name="tradeOperate_edt_style_in">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:textColorHint">@color/tv_name</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/border_shape_red_stroke_money</item>
+        <item name="android:textSize">@dimen/tv_edt_size</item>
+        <item name="android:singleLine">true</item>
+
+    </style>
+    <!--交易页面卖出EditText-->
+    <style name="tradeOperate_edt_style_out" parent="tradeOperate_edt_style_in">
+        <item name="android:background">@drawable/border_shape_blue_stroke_money</item>
+
+
+    </style>
+
+
+    <!--交易碎片买入选择满仓,半仓等radioButton的样式-->
+    <style name="trade_rb_selectCount_style_in" parent="width_0_height_wrap_weight_1">
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@drawable/rbtn_selector_text_trade_select_count</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:background">@drawable/rbtn_selector_trade_select_count_red</item>
+    </style>
+    <!--交易碎片卖出选择满仓,半仓等radioButton的样式-->
+    <style name="trade_rb_selectCount_style_out" parent="trade_rb_selectCount_style_in">
+        <item name="android:background">@drawable/rbtn_selector_trade_select_count_blue</item>
+    </style>
+
+
+    <!--各种对话框 的字体-->
+    <style name="tv_dialog" parent="width_wrap_height_wrap">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/tv_dialog</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!--各种对话框 的字体-->
+    <style name="tv_dialog_content" parent="width_wrap_height_wrap">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/priceRedColor</item>
+    </style>
+
+
+    <!--登录和修改密码页面EditText-->
+    <style name="login_edt_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColorHint">@color/tv_login_edt_hint</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@null</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+
+    <!--各页面的button-->
+    <style name="btn_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+
+    <!--申购详情的字体-->
+
+    <style name="tv_newProductPostDetail_name">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:textColor">@color/theme_black</item>
+        <item name="android:textSize">@dimen/theme_textsize_normal</item>
+    </style>
+
+    <style name="tv_newProductPostDetail_value">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">3</item>
+        <item name="android:textColor">@color/theme_gray</item>
+        <item name="android:textSize">@dimen/theme_textsize_normal</item>
+
+    </style>
+
+
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_percent_money_trade">
+
+    </include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/StockDetail_btn_style"
+            android:text="@string/tradeOperate_killOrder_productName" />
+
+        <TextView
+            style="@style/StockDetail_btn_style"
+            android:text="@string/tradeOperate_killOrder_price"
+            android:layout_marginLeft="1dp" />
+
+        <TextView
+            style="@style/StockDetail_btn_style"
+            android:text="@string/tradeOperate_killOrder_commissionAndTrade"
+            android:layout_marginLeft="1dp" />
+
+        <TextView
+            style="@style/StockDetail_btn_style"
+            android:text="@string/tradeOperate_killOrder_type"
+            android:layout_marginLeft="1dp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listview_tradeOperate_killOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/black"
+        android:dividerHeight="1dp"
+        android:layout_marginTop="1dp">
+
+    </ListView>
+
+
+</LinearLayout>

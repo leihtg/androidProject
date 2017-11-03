@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/chooseList_deleteSure"
+        android:textColor="@color/lightGray"
+        android:textSize="20sp"
+        android:background="#44ffffff"
+        android:gravity="center"
+        android:padding="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#44dddddd"
+        android:padding="20dp">
+
+
+        <TextView
+            android:id="@+id/tv_chooseList_dialog_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chooseList_sureDelete"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_chooseList_dialog_itemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tradeOperate_killOrder_operate"
+            android:textColor="@color/priceRedColor"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#44ffffff">
+
+        <Button
+            android:id="@+id/btn_chooseList_dialog_ensure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/priceRedColor"
+            android:textSize="20sp"
+            android:text="@string/tradeOperate_killOrder_ensure"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@null" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+        </View>
+
+        <Button
+            android:id="@+id/btn_chooseList_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/priceRedColor"
+            android:textSize="20sp"
+            android:text="@string/tradeOperate_killOrder_cancel"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginLeft="1dp"
+            android:background="@null" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

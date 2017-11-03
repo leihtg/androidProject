@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_tradeOperate_position_listitem_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="综合数据"
+            android:textSize="@dimen/tv_priceList_size" />
+
+        <TextView
+            android:id="@+id/tv_tradeOperate_position_listitem_marketValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="综合数据"
+            android:textSize="@dimen/tv_priceList_size" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/tv_tradeOperate_position_listitem_averagePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.20"
+            android:textStyle="bold"
+            android:textSize="@dimen/tv_priceList_price_size"
+            android:ellipsize="end"
+            android:singleLine="true" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/tv_tradeOperate_position_listitem_profit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="综合数据"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="@dimen/tv_priceList_size" />
+
+        <TextView
+            android:id="@+id/tv_tradeOperate_position_listitem_profitRatio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="综合数据"
+            android:textSize="@dimen/tv_priceList_size" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/tv_tradeOperate_position_listitem_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="综合数据"
+            android:textSize="@dimen/tv_priceList_size" />
+
+        <TextView
+            android:id="@+id/tv_tradeOperate_position_listitem_avaiable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="综合数据"
+            android:textSize="@dimen/tv_priceList_size" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

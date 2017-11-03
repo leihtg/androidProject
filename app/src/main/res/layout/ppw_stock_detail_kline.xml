@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ListView
+        android:id="@+id/listView_stockDetail_ppw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_stock_btn_unchecked"
+        android:divider="@color/tv_priceList_devideLine"
+        android:dividerHeight="0.5dp">
+
+    </ListView>
+
+
+</LinearLayout>

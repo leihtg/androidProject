@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="5"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center">
+
+        <dianshi.matchtrader.view.RingView
+            android:id="@+id/ringView_trade_percent"
+            android:layout_width="80dp"
+            android:layout_height="80dp">
+
+        </dianshi.matchtrader.view.RingView>
+    </LinearLayout>
+
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_moneyIn_totalAssets_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/moneyIn_totalAssets"
+                android:textColor="@color/lightGray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_moneyIn_totalAssets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@color/blue"
+                android:layout_marginRight="10dp" />
+
+            <TextView
+                android:id="@+id/tv_moneyIn_totalMarketValue_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/moneyIn_totalMarketValue"
+                android:textColor="@color/lightGray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_moneyIn_canUseMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@color/priceRedColor"
+                android:layout_marginRight="10dp" />
+
+            <TextView
+                android:id="@+id/tv_moneyIn_availableAmount_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/moneyIn_availableAmount"
+                android:textColor="@color/lightGray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_moneyIn_frozenMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:textSize="14sp" />
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
+

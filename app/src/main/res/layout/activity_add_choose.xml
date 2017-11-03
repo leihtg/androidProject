@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layout_priceList_ppw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_pop">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+
+            <AutoCompleteTextView
+                android:id="@+id/edt_priceList_ppw_stockCode"
+                style="@style/tradeOperate_edt_style_in"
+                android:hint="@string/chooseList_stockCode"
+                android:textColorHint="@color/priceRedColor"
+                android:textColor="@color/white"
+                android:background="@drawable/border_shape_red_stroke_money"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/btn_priceList_ppw_add"
+                style="@style/btn_style"
+                android:background="@color/priceRedColor"
+                android:text="@string/chooseList_add"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/priceRedColor"></View>
+
+        <Button
+            android:id="@+id/btn_priceList_ppw_cancel"
+            style="@style/btn_style"
+            android:text="@string/chooseList_cancel"
+            android:textColor="@color/priceRedColor"
+            android:background="@null" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

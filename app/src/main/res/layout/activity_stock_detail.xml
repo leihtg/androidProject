@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#141414"
+    android:id="@+id/rootLayout_stockDetail">
+
+    <include layout="@layout/header_stock_detail"></include>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <RadioGroup
+            android:id="@+id/radioGroup_stockDetail"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/rbtn_stockDetail_time"
+                style="@style/StockDetail_rb_style"
+                android:text="@string/stockDetail_time"
+
+                >
+
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/rbtn_stockDetail_dayK"
+                style="@style/StockDetail_rb_style"
+                android:text="@string/stockDetail_dayK"
+                android:layout_marginLeft="1dp"
+                android:checked="true">
+
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/rbtn_stockDetail_weekK"
+                style="@style/StockDetail_rb_style"
+                android:text="@string/stockDetail_weekK"
+                android:layout_marginLeft="1dp">
+
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/rbtn_stockDetail_monthK"
+                style="@style/StockDetail_rb_style"
+                android:text="@string/stockDetail_monthK"
+                android:layout_marginLeft="1dp">
+
+            </RadioButton>
+            >
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_stockDetail_period"
+                    style="@style/StockDetail_btn_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/stockDetail_period"
+                    android:layout_marginLeft="1dp"></TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/stock_pop"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_stockDetail_quota"
+                    style="@style/StockDetail_btn_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/stockDetail_quota"
+                    android:layout_marginLeft="1dp"></TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/stock_pop"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone">
+
+        <dianshi.matchtrader.view.LongPressView
+            android:id="@+id/img_stockDetail_klineBefore"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@mipmap/stock_left" />
+
+        <dianshi.matchtrader.view.LongPressView
+            android:id="@+id/img_stockDetail_klineAfter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@mipmap/stock_right"
+            android:layout_marginLeft="10dp" />
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:id="@+id/framelayout_stockDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <dianshi.matchtrader.view.KChartView
+                android:id="@+id/kchartview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+
+        <include
+            layout="@layout/slidelayout_stock_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
+        </include>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_stockDetail_btnFunction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4">
+
+            <TextView
+                android:id="@+id/tv_stockDetail_fastBuy"
+                style="@style/StockDetail_btn_style"
+                android:text="@string/stockDetail_fastBuy" />
+
+            <TextView
+                android:id="@+id/tv_stockDetail_fastSell"
+                style="@style/StockDetail_btn_style"
+                android:text="@string/stockDetail_fastSell"
+                android:layout_marginLeft="1dp" />
+
+            <TextView
+                android:id="@+id/tv_stockDetail_goTrade"
+                style="@style/StockDetail_btn_style"
+                android:text="@string/stockDetail_goTrade"
+                android:layout_marginLeft="1dp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_stockDetail_addChoose"
+            style="@style/StockDetail_btn_style"
+            android:layout_weight="2"
+            android:text="@string/stockDetail_addChoose"
+            android:layout_marginLeft="1dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

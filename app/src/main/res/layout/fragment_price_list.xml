@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <include
+        android:id="@+id/header_priceList"
+        layout="@layout/header_price_list" />
+
+    <ListView
+        android:id="@+id/listview_priceList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/tv_priceList_devideLine"
+        android:dividerHeight="0.3dp"></ListView>
+
+</LinearLayout>

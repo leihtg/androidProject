@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/bg_trade_inAndOut">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_tradeOperate_inAndOut_collectName"
+            style="@style/tradeOperate_edt_style_in"
+            android:hint="@string/tradeOperate_in_collectName" />
+
+        <ImageView
+            android:id="@+id/img_tradeOperate_inAndOut_clearName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/clear"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_tradeOperate_tradeOperate_inAndOut_sub"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/priceRedColor"
+            android:text="—"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="10dp" />
+
+        <dianshi.matchtrader.view.LengthFilterEditTextView
+            style="@style/tradeOperate_edt_style_in"
+            android:id="@+id/edt_tradeOperate_tradeOperate_inAndOut_price"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:hint="@string/tradeOperate_in_price"
+            android:numeric="decimal"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/tv_tradeOperate_tradeOperate_inAndOut_add"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/priceRedColor"
+            android:text="+"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="10dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:id="@+id/layout_tradeOperate_inAndOut_downLimitPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="15dp">
+
+            <TextView
+                style="@style/stockDetail_ppw_tv_style"
+                android:text="@string/tradeOperate_in_downLimitPrice"
+                android:textSize="11sp"
+                android:textColor="@color/priceGreenColor" />
+
+            <TextView
+                android:id="@+id/tv_tradeOperate_inAndOut_downLimitPrice"
+                style="@style/stockDetail_ppw_tv_style"
+                android:text="--"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/priceGreenColor"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/layout_tradeOperate_inAndOut_upLimitPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp">
+
+            <TextView
+                style="@style/stockDetail_ppw_tv_style"
+                android:text="@string/tradeOperate_in_upLimitPrice"
+                android:textSize="11sp"
+                android:textColor="@color/priceRedColor" />
+
+            <TextView
+                android:id="@+id/tv_tradeOperate_inAndOut_upLimitPrice"
+                style="@style/stockDetail_ppw_tv_style"
+                android:text="--"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/priceRedColor"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_shape_red_stroke_money"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/edt_tradeOperate_tradeOperate_inAndOut_amount"
+            style="@style/stockDetail_edt_count_style"
+            android:hint="@string/tradeOperate_in_amount" />
+
+
+        <LinearLayout
+            android:id="@+id/layout_tradeOperate_tradeOperate_inAndOut_canTradeAmountName"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical|right"
+            android:layout_marginRight="15dp">
+
+            <TextView
+                android:id="@+id/tv_tradeOperate_inAndOut_canTradeAmountName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/tv_name"
+                android:text="@string/tradeOperate_in_canBuyAmount"
+                android:textSize="14sp"
+                android:visibility="gone"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_tradeOperate_inAndOut_canTradeAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/tv_name"
+                android:text="--"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+
+        <TextView
+            android:id="@+id/tv_tradeOperate_inAndOut_canTradeMoney_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tradeOperate_in_canBuyMoney"
+            android:textColor="@color/priceRedColor"
+            android:textSize="11sp"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/tv_tradeOperat_inAndOut_canTradeMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/priceRedColor"
+            android:textSize="11sp"
+            android:layout_toRightOf="@+id/tv_tradeOperate_inAndOut_canTradeMoney_name"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true" />
+
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup_tradeOperate_tradeOperate_inAndOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <RadioButton
+            android:id="@+id/rbtn_tradeOperate_tradeOperate_inAndOut_allCount"
+            style="@style/trade_rb_selectCount_style_in"
+            android:text="@string/tradeOperate_int_allCount" />
+
+        <RadioButton
+            android:id="@+id/rbtn_tradeOperate_tradeOperate_inAndOut_halfCount"
+            style="@style/trade_rb_selectCount_style_in"
+            android:text="@string/tradeOperate_int_halfCount"
+            android:layout_marginLeft="10dp" />
+
+        <RadioButton
+            android:id="@+id/rbtn_tradeOperate_tradeOperate_inAndOut_oneOfThreeCount"
+            style="@style/trade_rb_selectCount_style_in"
+            android:text="@string/tradeOperate_int_oneOfThreeCount"
+            android:layout_marginLeft="10dp" />
+
+        <RadioButton
+            android:id="@+id/rbtn_tradeOperate_tradeOperate_inAndOut_oneOfFourCount"
+            style="@style/trade_rb_selectCount_style_in"
+            android:text="@string/tradeOperate_int_oneOfFourCount"
+            android:layout_marginLeft="10dp" />
+
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btn_tradeOperate_tradeOperate_inAndOut_buy"
+        style="@style/btn_style"
+        android:background="@color/priceRedColor"
+        android:text="@string/tradeOperate_in"
+        android:layout_marginTop="10dp" />
+</LinearLayout>

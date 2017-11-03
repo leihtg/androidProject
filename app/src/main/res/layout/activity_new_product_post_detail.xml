@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_listitem_name"
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_name" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_name"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_category" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_category"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_price" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_price"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_charge" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_charge"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_startAskTime" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_startAskTime"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_endAskTime" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_endAskTime"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_isFrozen" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_isFrozen"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_frozenEndTime" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_frozenEndTime"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_perMinCount" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_perMinCount"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_perMaxCount" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_perMaxCount"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_isAllowedCancel" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_isAllowedCancel"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_perMinLastMoney" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_perMinLastMoney"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_canTradeMoney" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_canTradeMoney"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="5">
+
+            <TextView
+                style="@style/tv_newProductPostDetail_name"
+                android:text="@string/newProductPostDetail_canPostCount" />
+
+            <TextView
+                android:id="@+id/tv_newProductPostDetail_canTradeCount"
+                style="@style/tv_newProductPostDetail_value"
+                android:text="--" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/line" />
+
+
+        <EditText
+            android:id="@+id/edt_newProductPostDetail_count"
+            style="@style/tradeOperate_edt_style_in"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_shape_gray_stroke_money"
+            android:hint="@string/tradeOperate_in_amount"
+            android:inputType="number"
+            android:textColor="@color/black" />
+
+
+        <Button
+            android:id="@+id/btn_newProductPostDetail_askPost"
+            style="@style/btn_style"
+            android:layout_marginTop="10dp"
+            android:background="@color/priceGaryColor"
+            android:text="@string/newProductPostDetail_askPost" />
+
+
+    </LinearLayout>
+
+
+</ScrollView>

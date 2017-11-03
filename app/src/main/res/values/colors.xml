@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#292929</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#000000</color>
+
+
+    <!--主题基础颜色-->
+    <color name="theme_gray">#666666</color>
+    <!--灰色-->
+    <color name="theme_black">#292929</color>
+    <!--黑色-->
+    <color name="theme_red">#FF4236</color>
+    <!--红色-->
+    <color name="theme_blue">#3B9DE8</color>
+    <!--蓝色-->
+
+    <!--按钮被禁用的颜色-->
+    <color name="theme_btn_enable_false">#999999</color>
+    <!--灰色-->
+
+
+    <!--actionBar的背景颜色-->
+    <color name="colorActionBar">#292929</color>
+
+    <color name="nav_list_1">#292929</color>
+    <color name="nav_list_2">#202020</color>
+
+
+    <color name="griditems_bg">#ffe8ecef</color>
+    <color name="commo_text_color">#ff333333</color>
+    <color name="line">#ffd3dde6</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+
+    <!--行情页面-->
+    <color name="bg_priceList_header">#1a1a1a</color>
+    <color name="bg_priceList_header_name">#262626</color>
+    <color name="tv_priceList_nameCode">#808080</color>
+    <color name="tv_priceList_devideLine">#4d4d4d</color>
+
+
+    <!--K线页面买入/卖出-->
+    <color name="bg_edt">#999999</color>
+    <color name="tv_name">#666666</color>
+    <color name="bg_pop">#333333</color>
+    <color name="tv_stock_btn">#fff</color>
+    <color name="bg_stock_btn_unchecked">#323232</color>
+    <color name="bg_stock_btn_checked">#262626</color>
+
+
+    <!--买入卖出-->
+    <color name="bg_trade_inAndOut">#262626</color>
+    <color name="rbtn_trade_selectCount">#4d4d4d</color>
+    <color name="tv_trade_selectCount_checked">#e5e5e7</color>
+    <color name="tv_trade_selectCount_unchecked">#999999</color>
+
+    <!--对话框-->
+    <color name="bg_dialog">#323232</color>
+    <color name="line_dialog">#4d4d4d</color>
+    <color name="tv_dialog">#B5B5B5</color>
+
+
+    <!--登录页面-->
+    <color name="bg_login">#1a1a1a</color>
+    <color name="tv_login_edt_hint">#676767</color>
+    <color name="bg_login_edt">#333333</color>
+
+
+    <color name="gray">#666666</color>
+    <color name="alpha">#0fff</color>
+
+    <color name="bgGray">#F2F2F2</color>
+    <color name="lightGray">#B5B5B5</color>
+    <color name="silver">#c6c6c6</color>
+
+    <color name="blue">#3B9DE8</color>
+    <color name="green">#A2ff5A</color>
+    <color name="yellow">#ffff00</color>
+    <color name="purple">#963BA4</color>
+
+    <color name="alpha_white">#22ffffff</color>
+    <color name="transparent">#9000</color>
+
+    <color name="priceRedColor">#FF4236</color>
+    <color name="priceGreenColor">#32d375</color>
+    <color name="priceGaryColor">#808080</color>
+
+</resources>

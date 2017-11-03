@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/bg_dialog">
+
+    <TextView
+        android:id="@+id/updateLog_versionName"
+        android:layout_width="match_parent"
+        android:text="@string/update_newVersion"
+        style="@style/tv_dialog"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:padding="10dp" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_dialog" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/updateLog_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_dialog" />
+
+    <Button
+        android:id="@+id/btn_updateLog_ensure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:text="@string/update_install"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@null" />
+
+</LinearLayout>
