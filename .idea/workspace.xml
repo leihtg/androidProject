@@ -10,8 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a9e7aec-76d7-4bc9-83a5-703cddfda68d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/communication/communication.iml" afterPath="$PROJECT_DIR$/communication/communication.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/core.iml" afterPath="$PROJECT_DIR$/core/core.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/umeng/umeng.iml" afterPath="$PROJECT_DIR$/umeng/umeng.iml" />
@@ -69,11 +68,9 @@
       <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/dianshi/matchtrader/activity/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
+            <state relative-caret-position="0">
               <caret line="212" column="52" selection-start-line="212" selection-start-column="52" selection-end-line="212" selection-end-column="52" />
               <folding>
-                <element signature="e#3542#5800#0" expanded="true" />
-                <element signature="e#5799#5800#0" expanded="true" />
                 <element signature="e#7298#7299#0" expanded="true" />
                 <element signature="e#7344#7345#0" expanded="true" />
               </folding>
@@ -84,8 +81,8 @@
       <file leaf-file-name="UpdateManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/dianshi/matchtrader/util/UpdateManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="517" column="22" selection-start-line="517" selection-start-column="22" selection-end-line="517" selection-end-column="22" />
+            <state relative-caret-position="338">
+              <caret line="502" column="27" selection-start-line="502" selection-start-column="27" selection-end-line="502" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -94,7 +91,7 @@
       <file leaf-file-name="ActivityCompat.java" pinned="false" current-in-tab="false">
         <entry file="jar://D:/Users/leihuating/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.3.0/support-v4-23.3.0-sources.jar!/android/support/v4/app/ActivityCompat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
+            <state relative-caret-position="7254">
               <caret line="312" column="23" selection-start-line="312" selection-start-column="23" selection-end-line="312" selection-end-column="23" />
               <folding />
             </state>
@@ -104,8 +101,8 @@
       <file leaf-file-name="Manifest.class" pinned="false" current-in-tab="false">
         <entry file="jar://D:/Users/leihuating/AppData/Local/Android/sdk/platforms/android-23/android.jar!/android/Manifest.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="177" column="45" selection-start-line="177" selection-start-column="45" selection-end-line="177" selection-end-column="45" />
+            <state relative-caret-position="4576">
+              <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -114,7 +111,7 @@
       <file leaf-file-name="ToolBarActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/dianshi/matchtrader/toolbar/ToolBarActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
+            <state relative-caret-position="312">
               <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
               <folding />
             </state>
@@ -4184,10 +4181,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane />
-      </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -4209,7 +4203,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4534,7 +4531,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -4547,9 +4544,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286517" sideWeight="0.507732" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286517" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32823366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -4621,26 +4618,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/dianshi/matchtrader/Utils/AppManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-754">
-          <caret line="111" column="7" selection-start-line="111" selection-start-column="7" selection-end-line="111" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/dianshi/matchtrader/server/DataType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/com/dianshi/matchtrader/server/FuncCall.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4316">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4669,7 +4650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-134">
           <caret line="172" column="38" selection-start-line="172" selection-start-column="38" selection-end-line="172" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4677,7 +4657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1222">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4773,7 +4752,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4798,7 +4776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4836,7 +4813,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4894,7 +4870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1369">
           <caret line="141" column="24" selection-start-line="141" selection-start-column="24" selection-end-line="141" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4902,7 +4877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-524">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4910,7 +4884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="19" column="26" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4918,7 +4891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1716">
           <caret line="102" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4934,9 +4906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="18" column="27" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4944,9 +4913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4954,11 +4920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#6870#6871#0" expanded="false" />
-            <element signature="e#6916#6917#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4966,9 +4927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1664">
           <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4976,13 +4934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2455#2456#0" expanded="false" />
-            <element signature="e#2517#2518#0" expanded="false" />
-            <element signature="e#2870#2871#0" expanded="false" />
-            <element signature="e#2932#2933#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4990,106 +4941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120172">
           <caret line="4733" column="16" selection-start-line="4733" selection-start-column="16" selection-end-line="4733" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#295920#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#20129#20130#0" expanded="false" />
-            <element signature="e#20164#20165#0" expanded="false" />
-            <element signature="e#20224#20225#0" expanded="false" />
-            <element signature="e#20259#20260#0" expanded="false" />
-            <element signature="e#20322#20323#0" expanded="false" />
-            <element signature="e#20357#20358#0" expanded="false" />
-            <element signature="e#20414#20415#0" expanded="false" />
-            <element signature="e#20449#20450#0" expanded="false" />
-            <element signature="e#20516#20517#0" expanded="false" />
-            <element signature="e#20551#20552#0" expanded="false" />
-            <element signature="e#20599#20600#0" expanded="false" />
-            <element signature="e#20634#20635#0" expanded="false" />
-            <element signature="e#20695#20696#0" expanded="false" />
-            <element signature="e#20734#20735#0" expanded="false" />
-            <element signature="e#25715#25716#0" expanded="false" />
-            <element signature="e#25774#25775#0" expanded="false" />
-            <element signature="e#36762#36763#0" expanded="false" />
-            <element signature="e#36793#36794#0" expanded="false" />
-            <element signature="e#37254#37255#0" expanded="false" />
-            <element signature="e#37333#37334#0" expanded="false" />
-            <element signature="e#70345#70346#0" expanded="false" />
-            <element signature="e#70393#70394#0" expanded="false" />
-            <element signature="e#73445#73446#0" expanded="false" />
-            <element signature="e#73473#73474#0" expanded="false" />
-            <element signature="e#104616#104617#0" expanded="false" />
-            <element signature="e#104644#104645#0" expanded="false" />
-            <element signature="e#116312#116313#0" expanded="false" />
-            <element signature="e#116360#116361#0" expanded="false" />
-            <element signature="e#123516#123517#0" expanded="false" />
-            <element signature="e#123580#123581#0" expanded="false" />
-            <element signature="e#124790#124791#0" expanded="false" />
-            <element signature="e#124830#124831#0" expanded="false" />
-            <element signature="e#133725#133726#0" expanded="false" />
-            <element signature="e#133788#133789#0" expanded="false" />
-            <element signature="e#135504#135505#0" expanded="false" />
-            <element signature="e#135528#135529#0" expanded="false" />
-            <element signature="e#140770#140771#0" expanded="false" />
-            <element signature="e#140834#140835#0" expanded="false" />
-            <element signature="e#143224#143225#0" expanded="false" />
-            <element signature="e#143283#143284#0" expanded="false" />
-            <element signature="e#147812#147813#0" expanded="false" />
-            <element signature="e#147840#147841#0" expanded="false" />
-            <element signature="e#156324#156325#0" expanded="false" />
-            <element signature="e#156358#156359#0" expanded="false" />
-            <element signature="e#158600#158601#0" expanded="false" />
-            <element signature="e#158642#158643#0" expanded="false" />
-            <element signature="e#160313#160314#0" expanded="false" />
-            <element signature="e#160346#160347#0" expanded="false" />
-            <element signature="e#172868#172869#0" expanded="false" />
-            <element signature="e#172908#172909#0" expanded="false" />
-            <element signature="e#173501#173502#0" expanded="false" />
-            <element signature="e#173550#173551#0" expanded="false" />
-            <element signature="e#178444#178445#0" expanded="false" />
-            <element signature="e#178478#178479#0" expanded="false" />
-            <element signature="e#187367#187368#0" expanded="false" />
-            <element signature="e#187419#187420#0" expanded="false" />
-            <element signature="e#188306#188307#0" expanded="false" />
-            <element signature="e#188344#188345#0" expanded="false" />
-            <element signature="e#189319#189320#0" expanded="false" />
-            <element signature="e#189364#189365#0" expanded="false" />
-            <element signature="e#208596#208597#0" expanded="false" />
-            <element signature="e#208653#208654#0" expanded="false" />
-            <element signature="e#209270#209271#0" expanded="false" />
-            <element signature="e#209319#209320#0" expanded="false" />
-            <element signature="e#209966#209967#0" expanded="false" />
-            <element signature="e#210015#210016#0" expanded="false" />
-            <element signature="e#216694#216695#0" expanded="false" />
-            <element signature="e#216745#216746#0" expanded="false" />
-            <element signature="e#217787#217788#0" expanded="false" />
-            <element signature="e#217833#217834#0" expanded="false" />
-            <element signature="e#222391#222392#0" expanded="false" />
-            <element signature="e#222415#222416#0" expanded="false" />
-            <element signature="e#224457#224458#0" expanded="false" />
-            <element signature="e#224494#224495#0" expanded="false" />
-            <element signature="e#239608#239609#0" expanded="false" />
-            <element signature="e#239646#239647#0" expanded="false" />
-            <element signature="e#241742#241743#0" expanded="false" />
-            <element signature="e#241783#241784#0" expanded="false" />
-            <element signature="e#251780#251781#0" expanded="false" />
-            <element signature="e#251807#251808#0" expanded="false" />
-            <element signature="e#253190#253191#0" expanded="false" />
-            <element signature="e#253218#253219#0" expanded="false" />
-            <element signature="e#253718#253719#0" expanded="false" />
-            <element signature="e#253758#253759#0" expanded="false" />
-            <element signature="e#279427#279428#0" expanded="false" />
-            <element signature="e#279496#279497#0" expanded="false" />
-            <element signature="e#288007#288008#0" expanded="false" />
-            <element signature="e#288054#288055#0" expanded="false" />
-            <element signature="e#288099#288100#0" expanded="false" />
-            <element signature="e#288150#288151#0" expanded="false" />
-            <element signature="e#288198#288199#0" expanded="false" />
-            <element signature="e#288253#288254#0" expanded="false" />
-            <element signature="e#290147#290148#0" expanded="false" />
-            <element signature="e#290188#290189#0" expanded="false" />
-            <element signature="e#291438#291439#0" expanded="false" />
-            <element signature="e#291492#291493#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5097,7 +4948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2132">
           <caret line="117" column="7" selection-start-line="117" selection-start-column="7" selection-end-line="117" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5105,7 +4955,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5113,7 +4962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5121,13 +4969,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="988">
           <caret line="43" column="46" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/dianshi/matchtrader/toolbar/ToolBarActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
+        <state relative-caret-position="312">
           <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
           <folding />
         </state>
@@ -5135,15 +4982,15 @@
     </entry>
     <entry file="jar://D:/Users/leihuating/AppData/Local/Android/sdk/platforms/android-23/android.jar!/android/Manifest.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="177" column="45" selection-start-line="177" selection-start-column="45" selection-end-line="177" selection-end-column="45" />
+        <state relative-caret-position="4576">
+          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://D:/Users/leihuating/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.3.0/support-v4-23.3.0-sources.jar!/android/support/v4/app/ActivityCompat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
+        <state relative-caret-position="7254">
           <caret line="312" column="23" selection-start-line="312" selection-start-column="23" selection-end-line="312" selection-end-column="23" />
           <folding />
         </state>
@@ -5151,21 +4998,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/dianshi/matchtrader/activity/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
+        <state relative-caret-position="0">
           <caret line="212" column="52" selection-start-line="212" selection-start-column="52" selection-end-line="212" selection-end-column="52" />
           <folding>
-            <element signature="e#3542#5800#0" expanded="true" />
-            <element signature="e#5799#5800#0" expanded="true" />
             <element signature="e#7298#7299#0" expanded="true" />
             <element signature="e#7344#7345#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/dianshi/matchtrader/util/UpdateManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="517" column="22" selection-start-line="517" selection-start-column="22" selection-end-line="517" selection-end-column="22" />
+        <state relative-caret-position="338">
+          <caret line="502" column="27" selection-start-line="502" selection-start-column="27" selection-end-line="502" selection-end-column="27" />
           <folding />
         </state>
       </provider>
