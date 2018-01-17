@@ -1,4 +1,4 @@
-package net.socket.contant;
+package com.anser.contant;
 
 /**
  * 常量

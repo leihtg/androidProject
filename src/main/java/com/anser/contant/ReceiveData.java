@@ -1,4 +1,4 @@
-package net.socket.contant;
+package com.anser.contant;
 
 /**
  * 传来的数据

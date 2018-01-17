@@ -1,62 +1,24 @@
 package net.socket;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.net.SocketException;
 import java.util.Arrays;
 
-import net.socket.contant.Contant;
+import com.anser.contant.Contant;
 
 /**
- * 为android 提供服务
+ * 广播本地地址
  * 
  * @author leihuating
- * @time 2018年1月9日14:40:20
+ *
  */
-public class YunPanServer extends Thread {
-	public static void main(String[] args) {
-		YunPanServer server = new YunPanServer();
-		server.checkHomeDir();
-		server.start();
-		server.startListen();
-	}
-
-	private void checkHomeDir() {
-		if (!new File(Contant.HOME_DIR).exists()) {
-			new File(Contant.HOME_DIR).mkdirs();
-		}
-	}
-
-	public void startListen() {
-		new Thread(run).start();
-	}
-
-	private Runnable run = new Runnable() {
-
-		@Override
-		public void run() {
-			try {
-				ServerSocket server = new ServerSocket(Contant.SERVER_PORT);
-				while (true) {
-					Socket client = server.accept();
-					System.out.println("tcp link :" + client);
-					new HandleClientThread(client).start();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	};
-
+public class BrocastLocalAddr extends Thread {
 	@Override
 	public void run() {
-		try {
-			DatagramSocket ds = new DatagramSocket(Contant.BROCAST_PORT);
+		try (DatagramSocket ds = new DatagramSocket(Contant.BROCAST_PORT);) {
 			ds.setBroadcast(true);
 			while (true) {
 				byte[] buf = new byte[2048];

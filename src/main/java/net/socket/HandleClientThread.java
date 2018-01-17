@@ -9,14 +9,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.anser.contant.Contant;
+import com.anser.contant.MsgType;
+import com.anser.contant.ReceiveData;
 import com.anser.model.FileModel;
 import com.anser.model.FileParam;
+import com.anser.util.BagPacket;
 import com.google.gson.Gson;
-
-import net.socket.contant.BagPacket;
-import net.socket.contant.Contant;
-import net.socket.contant.ContantMsg;
-import net.socket.contant.ReceiveData;
 
 /**
  * 处理客户端发来的请求 长连接
@@ -88,12 +87,12 @@ public class HandleClientThread extends Thread {
 	private void transfer(ReceiveData rd) {
 		try {
 			switch (rd.type) {
-			case ContantMsg.FETCH_DIR:
+			case MsgType.FETCH_DIR:
 				FileParam fm = mapper.fromJson(rd.data, FileParam.class);
 				File file = new File(Contant.HOME_DIR, fm.getPath());
 				String json = mapper.toJson(listFile(file));
 				byte[] data = json.getBytes("UTF-8");
-				byte[] head = BagPacket.AssembleBag(data.length, ContantMsg.FILE_LIST_MSG);
+				byte[] head = BagPacket.AssembleBag(data.length, MsgType.FILE_LIST_MSG);
 
 				OutputStream os = client.getOutputStream();
 				os.write(head);

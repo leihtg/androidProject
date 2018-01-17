@@ -1,4 +1,6 @@
-package net.socket.contant;
+package com.anser.util;
+
+import com.anser.contant.Contant;
 
 /**
  * 报文包

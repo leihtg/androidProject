@@ -1,4 +1,4 @@
-package net.socket.contant;
+package com.anser.util;
 
 /**
  * Created by leihuating on 2018/1/15.
