@@ -8,7 +8,7 @@ package com.anser.contant;
  */
 public class Contant {
     // 本地云盘目录
-    public static final String HOME_DIR = "D:\\myCloud";
+    public static final String HOME_DIR = "D:\\";
     //版本
     public static final int VERSION = 1;
     // 服务端监听端口
