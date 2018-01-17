@@ -8,6 +8,7 @@ package com.anser.model.base;
  */
 public class ModelInBase {
 	private String uuid;
+	private int busType;// 业务类型
 
 	public String getUuid() {
 		return uuid;
@@ -15,6 +16,14 @@ public class ModelInBase {
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
+	}
+
+	public int getBusType() {
+		return busType;
+	}
+
+	public void setBusType(int busType) {
+		this.busType = busType;
 	}
 
 }

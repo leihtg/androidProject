@@ -4,16 +4,16 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.anser.contant.Contant;
 import com.anser.contant.MsgType;
 import com.anser.contant.ReceiveData;
 import com.anser.model.FileModel;
-import com.anser.model.FileParam;
+import com.anser.model.FileQueryModel_in;
+import com.anser.model.FileQueryModel_out;
+import com.anser.model.base.ModelInBase;
 import com.anser.util.BagPacket;
 import com.google.gson.Gson;
 
@@ -24,7 +24,7 @@ import com.google.gson.Gson;
  * @time 2018年1月10日17:27:5
  */
 public class HandleClientThread extends Thread {
-	private static Gson mapper = new Gson();
+	private static Gson gson = new Gson();
 	private volatile boolean isConnect = false;
 	private Socket client;
 
@@ -86,13 +86,17 @@ public class HandleClientThread extends Thread {
 
 	private void transfer(ReceiveData rd) {
 		try {
-			switch (rd.type) {
+			ModelInBase mi = gson.fromJson(rd.data, ModelInBase.class);
+			switch (mi.getBusType()) {
 			case MsgType.FETCH_DIR:
-				FileParam fm = mapper.fromJson(rd.data, FileParam.class);
+				FileQueryModel_in fm = gson.fromJson(rd.data, FileQueryModel_in.class);
 				File file = new File(Contant.HOME_DIR, fm.getPath());
-				String json = mapper.toJson(listFile(file));
+				FileQueryModel_out out = new FileQueryModel_out();
+				out.setUuid(fm.getUuid());
+				out.setList(listFile(file));
+				String json = gson.toJson(out);
 				byte[] data = json.getBytes("UTF-8");
-				byte[] head = BagPacket.AssembleBag(data.length, MsgType.FILE_LIST_MSG);
+				byte[] head = BagPacket.AssembleBag(data.length, rd.type);
 
 				OutputStream os = client.getOutputStream();
 				os.write(head);
@@ -116,6 +120,7 @@ public class HandleClientThread extends Thread {
 			FileModel m = new FileModel();
 			m.setName(f.getName());
 			m.setLastModified(f.lastModified());
+			m.setLength(f.length());
 			m.setDir(f.isDirectory());
 			list.add(m);
 		}
@@ -123,8 +128,4 @@ public class HandleClientThread extends Thread {
 		return list;
 	}
 
-	public static void main(String[] args) throws Exception {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		System.out.println(sdf.format(new Date()));
-	}
 }
