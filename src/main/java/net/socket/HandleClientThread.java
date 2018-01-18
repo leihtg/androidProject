@@ -52,7 +52,7 @@ public class HandleClientThread extends Thread {
 				System.out.println("recv:" + rd.type + ",json:" + rd.data);
 
 				// 发送数据
-				transfer(rd);
+				wirteResponse(rd);
 			}
 		} catch (Exception e) {
 			isConnect = false;
@@ -84,7 +84,11 @@ public class HandleClientThread extends Thread {
 		}
 	}
 
-	private void transfer(ReceiveData rd) {
+	/**
+	 * 向socket写入返回信息
+	 * @param rd
+	 */
+	private void wirteResponse(ReceiveData rd) {
 		try {
 			ModelInBase mi = gson.fromJson(rd.data, ModelInBase.class);
 			switch (mi.getBusType()) {
@@ -115,17 +119,23 @@ public class HandleClientThread extends Thread {
 	}
 
 	private List<FileModel> listFile(File file) {
-		List<FileModel> list = new ArrayList<>();
+		List<FileModel> dirs = new ArrayList<>();
+		List<FileModel> files = new ArrayList<>();
+
 		for (File f : file.listFiles()) {
 			FileModel m = new FileModel();
 			m.setName(f.getName());
 			m.setLastModified(f.lastModified());
 			m.setLength(f.length());
 			m.setDir(f.isDirectory());
-			list.add(m);
+			if (f.isDirectory()) {
+				dirs.add(m);
+			} else {
+				files.add(m);
+			}
 		}
-
-		return list;
+		dirs.addAll(files);
+		return dirs;
 	}
 
 }
