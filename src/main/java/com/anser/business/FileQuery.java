@@ -1,11 +1,9 @@
 package com.anser.business;
 
-import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedType;
-import java.net.URL;
 import java.util.Date;
-import java.util.Enumeration;
+import java.util.concurrent.ArrayBlockingQueue;
 
 import com.anser.annotation.BusinessType;
 import com.anser.contant.MsgType;
@@ -18,19 +16,57 @@ import com.anser.contant.MsgType;
  */
 public class FileQuery {
 	@BusinessType(msgType = MsgType.FETCH_DIR)
-	public void call(@BusinessType(msgType=3) Date a,String s) {
+	public void call(@BusinessType(msgType = 3) Date a, String s) {
 
 	}
 
-	public static void main(String[] args) throws NoSuchMethodException, SecurityException, IOException {
-		ClassLoader loader = FileQuery.class.getClassLoader();
-		Enumeration<URL> rs = loader.getResources("com/anser/annotation");
-		while(rs.hasMoreElements()) {
-			System.out.println(rs.nextElement());
-		}
-		System.out.println();
+	ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<>(100);
+
+	public void add() {
+		new Thread() {
+
+			@Override
+			public void run() {
+				int i = 0;
+				while (i++ < 1000) {
+					try {
+						queue.put(String.valueOf(i));
+						System.out.println("offer: " + i + "\t" + queue.size());
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+
+		}.start();
 	}
-	
+
+	public void take() {
+		new Thread() {
+
+			@Override
+			public void run() {
+				try {
+					while (true) {
+						String take = queue.take();
+						System.out.println("take: " + take);
+					}
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}.start();
+	}
+
+	public static void main(String[] args) throws Exception {
+		FileQuery f = new FileQuery();
+		f.add();
+		Thread.sleep(1000);
+		f.take();
+	}
+
 	static void printType(AnnotatedType[] a) {
 		for (AnnotatedType aa : a) {
 			System.out.println(aa.getType());

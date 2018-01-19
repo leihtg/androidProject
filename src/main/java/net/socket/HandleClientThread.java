@@ -86,11 +86,14 @@ public class HandleClientThread extends Thread {
 
 	/**
 	 * 向socket写入返回信息
+	 * 
 	 * @param rd
 	 */
 	private void wirteResponse(ReceiveData rd) {
 		try {
 			ModelInBase mi = gson.fromJson(rd.data, ModelInBase.class);
+			if (null == mi)
+				return;
 			switch (mi.getBusType()) {
 			case MsgType.FETCH_DIR:
 				FileQueryModel_in fm = gson.fromJson(rd.data, FileQueryModel_in.class);
