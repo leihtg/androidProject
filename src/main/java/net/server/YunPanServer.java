@@ -35,6 +35,7 @@ public class YunPanServer extends Thread {
 	public void run() {
 
 		try (ServerSocket server = new ServerSocket(Contant.SERVER_PORT);) {
+			System.out.println("服务器启动成功");
 			while (true) {
 				Socket client = server.accept();
 				System.out.println("tcp link: " + client);

@@ -1,19 +1,14 @@
 package net.socket;
 
-import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
 
-import com.anser.contant.Contant;
-import com.anser.contant.MsgType;
+import com.anser.annotation.GlobalBeanCollection;
 import com.anser.contant.ReceiveData;
-import com.anser.model.FileModel;
-import com.anser.model.FileQueryModel_in;
-import com.anser.model.FileQueryModel_out;
 import com.anser.model.base.ModelInBase;
+import com.anser.model.base.ModelOutBase;
 import com.anser.util.BagPacket;
 import com.google.gson.Gson;
 
@@ -25,12 +20,16 @@ import com.google.gson.Gson;
  */
 public class HandleClientThread extends Thread {
 	private static Gson gson = new Gson();
+	static GlobalBeanCollection globalBean = GlobalBeanCollection.getInstance();
+	// 消息队列
+	LinkedBlockingQueue<ReceiveData> mqueue = new LinkedBlockingQueue<>();
 	private volatile boolean isConnect = false;
 	private Socket client;
 
 	public HandleClientThread(Socket socket) {
-		this.client = socket;
 		isConnect = true;
+		this.client = socket;
+		writeThread.start();
 	}
 
 	@Override
@@ -51,8 +50,7 @@ public class HandleClientThread extends Thread {
 
 				System.out.println("recv:" + rd.type + ",json:" + rd.data);
 
-				// 发送数据
-				wirteResponse(rd);
+				mqueue.put(rd);
 			}
 		} catch (Exception e) {
 			isConnect = false;
@@ -84,6 +82,23 @@ public class HandleClientThread extends Thread {
 		}
 	}
 
+	Thread writeThread = new Thread() {
+
+		@Override
+		public void run() {
+			while (isConnect) {
+				try {
+					ReceiveData take = mqueue.take();
+					// 发送数据
+					wirteResponse(take);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+	};
+
 	/**
 	 * 向socket写入返回信息
 	 * 
@@ -94,51 +109,23 @@ public class HandleClientThread extends Thread {
 			ModelInBase mi = gson.fromJson(rd.data, ModelInBase.class);
 			if (null == mi)
 				return;
-			switch (mi.getBusType()) {
-			case MsgType.FETCH_DIR:
-				FileQueryModel_in fm = gson.fromJson(rd.data, FileQueryModel_in.class);
-				File file = new File(Contant.HOME_DIR, fm.getPath());
-				FileQueryModel_out out = new FileQueryModel_out();
-				out.setUuid(fm.getUuid());
-				out.setList(listFile(file));
-				String json = gson.toJson(out);
-				byte[] data = json.getBytes("UTF-8");
-				byte[] head = BagPacket.AssembleBag(data.length, rd.type);
+			ModelOutBase mout = globalBean.invokeBusi(mi.getBusType(), rd);
+			if (null == mout)
+				return;
+			String json = gson.toJson(mout);
+			byte[] data = json.getBytes("UTF-8");
+			byte[] head = BagPacket.AssembleBag(data.length, rd.type);
 
-				OutputStream os = client.getOutputStream();
-				os.write(head);
-				os.write(data);
-				os.flush();
+			OutputStream os = client.getOutputStream();
+			os.write(head);
+			os.write(data);
+			os.flush();
 
-				BagPacket sb = BagPacket.splitBag(head);
-				System.out.println(String.format("\nreturn: type[%d],length[%d]", sb.type, sb.length));
-				break;
-
-			default:
-			}
+			BagPacket sb = BagPacket.splitBag(head);
+			System.out.println(String.format("\nreturn: type[%d],length[%d]", sb.type, sb.length));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	private List<FileModel> listFile(File file) {
-		List<FileModel> dirs = new ArrayList<>();
-		List<FileModel> files = new ArrayList<>();
-
-		for (File f : file.listFiles()) {
-			FileModel m = new FileModel();
-			m.setName(f.getName());
-			m.setLastModified(f.lastModified());
-			m.setLength(f.length());
-			m.setDir(f.isDirectory());
-			if (f.isDirectory()) {
-				dirs.add(m);
-			} else {
-				files.add(m);
-			}
-		}
-		dirs.addAll(files);
-		return dirs;
 	}
 
 }
