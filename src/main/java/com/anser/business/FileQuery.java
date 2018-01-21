@@ -31,7 +31,6 @@ public class FileQuery implements BusinessInter {
 		FileQueryModel_in fm = gson.fromJson(rd.data, FileQueryModel_in.class);
 		File file = new File(Contant.HOME_DIR, fm.getPath());
 		FileQueryModel_out out = new FileQueryModel_out();
-		out.setUuid(fm.getUuid());
 		out.setList(listFile(file));
 		return out;
 	}
@@ -41,6 +40,9 @@ public class FileQuery implements BusinessInter {
 		List<FileModel> files = new ArrayList<>();
 
 		for (File f : file.listFiles()) {
+			if (!f.canRead()) {
+				continue;
+			}
 			FileModel m = new FileModel();
 			m.setName(f.getName());
 			m.setLastModified(f.lastModified());

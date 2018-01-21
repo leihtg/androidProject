@@ -112,6 +112,7 @@ public class HandleClientThread extends Thread {
 			ModelOutBase mout = globalBean.invokeBusi(mi.getBusType(), rd);
 			if (null == mout)
 				return;
+			mout.setUuid(mi.getUuid());
 			String json = gson.toJson(mout);
 			byte[] data = json.getBytes("UTF-8");
 			byte[] head = BagPacket.AssembleBag(data.length, rd.type);
@@ -122,7 +123,7 @@ public class HandleClientThread extends Thread {
 			os.flush();
 
 			BagPacket sb = BagPacket.splitBag(head);
-			System.out.println(String.format("\nreturn: type[%d],length[%d]", sb.type, sb.length));
+			System.out.println(String.format("return: type[%d],length[%d]\n", sb.type, sb.length));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
