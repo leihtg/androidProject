@@ -48,7 +48,7 @@ public class HandleClientThread extends Thread {
 				rd.type = bp.type;
 				rd.data = new String(body, "UTF-8");
 
-				System.out.println("recv:" + rd.type + ",json:" + rd.data);
+//				System.out.println("recv:" + rd.type + ",json:" + rd.data);
 
 				mqueue.put(rd);
 			}

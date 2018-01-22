@@ -14,7 +14,6 @@ import com.anser.enums.ScopeType;
 import com.anser.model.FileModel;
 import com.anser.model.FileQueryModel_in;
 import com.anser.model.FileQueryModel_out;
-import com.google.gson.Gson;
 
 /**
  * 文件查询业务
@@ -24,7 +23,6 @@ import com.google.gson.Gson;
  */
 @Scope(ScopeType.singleton)
 public class FileQuery implements BusinessInter {
-	Gson gson = new Gson();
 
 	@BusinessType(MsgType.FETCH_DIR)
 	public FileQueryModel_out call(ReceiveData rd) {

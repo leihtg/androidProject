@@ -64,7 +64,7 @@ public class GlobalBeanCollection {
 		if (null == method) {
 			throw new RuntimeException("no method for MsgType:" + mt);
 		}
-		Object obj = cachedSinton.get(mt);
+		Object obj = cachedSinton.get(method);
 		if (null == obj) {
 			Class<?> clzz = method.getDeclaringClass();
 			ScopeType st = scopMap.get(clzz);
