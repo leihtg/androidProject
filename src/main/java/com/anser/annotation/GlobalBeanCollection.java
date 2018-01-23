@@ -131,7 +131,8 @@ public class GlobalBeanCollection {
 					MsgType mt = ba.value();
 					Method method = busiMap.get(mt);
 					if (null != method) {
-						throw new RuntimeException("can not bind same MsgType:[" + mt + "] in class:[" + clazz + "] and [" + method + "]");
+						throw new RuntimeException("can not bind same MsgType:[" + mt + "] in method:[" + m
+								+ "] and method:[" + method + "]");
 					}
 					if (!ModelOutBase.class.isAssignableFrom(m.getReturnType())) {
 						throw new RuntimeException("method:" + m + ",must return type{" + ModelOutBase.class + "]");

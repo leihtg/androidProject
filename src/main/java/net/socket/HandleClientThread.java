@@ -35,21 +35,10 @@ public class HandleClientThread extends Thread {
 	@Override
 	public void run() {
 		try {
+			InputStream is = client.getInputStream();
 			while (isConnect) {
-				// 读取头
-				byte[] head = new byte[BagPacket.getHeadLen()];
-				receiveByLen(head);
-				BagPacket bp = BagPacket.splitBag(head);
-				// 读包体
-				byte[] body = new byte[bp.length];
-				receiveByLen(body);
-
-				ReceiveData rd = new ReceiveData();
-				rd.type = bp.type;
-				rd.data = new String(body, "UTF-8");
-
-//				System.out.println("recv:" + rd.type + ",json:" + rd.data);
-
+				ReceiveData rd = BagPacket.readData(is);
+				// System.out.println("recv:" + rd.type + ",json:" + rd.data);
 				mqueue.put(rd);
 			}
 		} catch (Exception e) {
@@ -57,29 +46,6 @@ public class HandleClientThread extends Thread {
 			e.printStackTrace();
 		}
 
-	}
-
-	/**
-	 * 读取长度
-	 *
-	 * @param bytes
-	 */
-	private void receiveByLen(byte[] bytes) {
-		try {
-			int len = bytes.length, readLen = 0, r;
-			InputStream is = client.getInputStream();
-			while (readLen < len) {
-				r = is.read(bytes, readLen, len - readLen);
-				if (r == -1) {// 对方关闭了输出流
-					isConnect = false;
-					break;
-				}
-				readLen += r;
-			}
-		} catch (Exception e) {
-			isConnect = false;
-			e.printStackTrace();
-		}
 	}
 
 	Thread writeThread = new Thread() {
@@ -114,16 +80,11 @@ public class HandleClientThread extends Thread {
 				return;
 			mout.setUuid(mi.getUuid());
 			String json = gson.toJson(mout);
-			byte[] data = json.getBytes("UTF-8");
-			byte[] head = BagPacket.AssembleBag(data.length, rd.type);
 
 			OutputStream os = client.getOutputStream();
-			os.write(head);
-			os.write(data);
-			os.flush();
+			byte[] data = json.getBytes("UTF-8");
+			BagPacket.sendData(os, data, rd.type);
 
-			BagPacket sb = BagPacket.splitBag(head);
-			System.out.println(String.format("return: type[%d],length[%d]\n", sb.type, sb.length));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -30,7 +30,8 @@ public class ClientTest {
 	static void uploadFile() {
 		try {
 			Socket client = new Socket("localhost", Contant.SERVER_PORT);
-			File file = new File("D:\\soft\\pycharm-professional-2017.3.exe");
+//			File file = new File("D:\\soft\\python-3.6.3.exe");
+			File file = new File("D:\\soft\\mingw-get-setup.exe");
 
 			OutputStream os = client.getOutputStream();
 			InputStream is = client.getInputStream();

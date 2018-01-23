@@ -14,6 +14,7 @@ import com.anser.enums.ScopeType;
 import com.anser.model.FileModel;
 import com.anser.model.FileQueryModel_in;
 import com.anser.model.FileQueryModel_out;
+import com.anser.model.base.ModelOutBase;
 
 /**
  * 文件查询业务
@@ -24,8 +25,9 @@ import com.anser.model.FileQueryModel_out;
 @Scope(ScopeType.singleton)
 public class FileQuery implements BusinessInter {
 
+	@Override
 	@BusinessType(MsgType.FETCH_DIR)
-	public FileQueryModel_out call(ReceiveData rd) {
+	public ModelOutBase call(ReceiveData rd) {
 		FileQueryModel_in fm = gson.fromJson(rd.data, FileQueryModel_in.class);
 		File file = new File(Contant.HOME_DIR, fm.getPath());
 		FileQueryModel_out out = new FileQueryModel_out();

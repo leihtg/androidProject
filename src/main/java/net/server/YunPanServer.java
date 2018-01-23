@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import com.anser.annotation.GlobalBeanCollection;
 import com.anser.contant.Contant;
 
 import net.socket.BrocastLocalAddr;
@@ -18,6 +19,7 @@ import net.socket.HandleClientThread;
  */
 public class YunPanServer extends Thread {
 	public static void main(String[] args) {
+		GlobalBeanCollection.getInstance();
 		YunPanServer server = new YunPanServer();
 		BrocastLocalAddr ba = new BrocastLocalAddr();
 		server.checkHomeDir();
