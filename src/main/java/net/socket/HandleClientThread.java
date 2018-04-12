@@ -43,6 +43,7 @@ public class HandleClientThread extends Thread {
 			}
 		} catch (Exception e) {
 			isConnect = false;
+			writeThread.interrupt();
 			e.printStackTrace();
 		}
 
@@ -52,14 +53,14 @@ public class HandleClientThread extends Thread {
 
 		@Override
 		public void run() {
-			while (isConnect) {
-				try {
+			try {
+				while (isConnect) {
 					ReceiveData take = mqueue.take();
 					// 发送数据
 					wirteResponse(take);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
 				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		}
 

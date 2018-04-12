@@ -39,7 +39,7 @@ public class BagPacket {
 		bp.length = BitConvert.convertToInt(buf, ver_len + type_len, total_len);
 		if (bp.version != Contant.VERSION) {
 			// 版本控制,防止乱输入导致length过大
-			throw new IllegalAccessError("Version:" + bp.version + ",should be:" + Contant.VERSION);
+			throw new IllegalArgumentException("Version:" + bp.version + ",should be:" + Contant.VERSION);
 		}
 		return bp;
 	}
