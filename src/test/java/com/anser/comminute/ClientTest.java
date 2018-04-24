@@ -71,6 +71,25 @@ public class ClientTest {
 	}
 
 	public static void main(String[] args) {
-		uploadFile();
+//		uploadFile();
+		class A{
+			void p() {
+				System.out.println("a");
+			}
+			void hide() {
+				System.out.println("hide A");
+			}
+		}
+		class B extends A{
+			void p() {
+				System.out.println("b");
+			}
+			void hide(String s) {
+				System.out.println("hide B");
+			}
+		}
+		A b=new B();
+		((A)b).p();
+		((B)b).hide("d");
 	}
 }
