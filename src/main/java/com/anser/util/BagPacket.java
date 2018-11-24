@@ -107,6 +107,7 @@ public class BagPacket {
 		rd.dataType = bp.type;
 		rd.data = new String(body, "UTF-8");
 
+		System.out.println("query body:"+bp.length);
 		return rd;
 	}
 
@@ -121,7 +122,6 @@ public class BagPacket {
 			int len = bytes.length, readLen = 0, r;
 			while (readLen < len) {
 				r = is.read(bytes, readLen, len - readLen);
-				System.out.println(r);
 				if (r == -1) {// 对方关闭了输出流
 					break;
 				}

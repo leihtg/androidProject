@@ -25,15 +25,16 @@ import com.anser.model.base.ModelOutBase;
 @Scope(ScopeType.singleton)
 public class FileQuery implements BusinessInter {
 
-	@Override
-	@BusinessType(ActionType.FETCH_DIR)
-	public ModelOutBase call(ReceiveData rd) {
-		FileQueryModel_in fm = gson.fromJson(rd.data, FileQueryModel_in.class);
-		File file = new File(Contant.HOME_DIR, fm.getPath());
-		FileQueryModel_out out = new FileQueryModel_out();
-		out.setList(listFile(file));
-		return out;
-	}
+    @Override
+    @BusinessType(ActionType.FETCH_DIR)
+    public ModelOutBase call(ReceiveData rd) {
+        FileQueryModel_in fm = gson.fromJson(rd.data, FileQueryModel_in.class);
+        File file = new File(Contant.HOME_DIR, fm.getPath());
+        System.out.println("query filePath => " + file.getAbsolutePath());
+        FileQueryModel_out out = new FileQueryModel_out();
+        out.setList(listFile(file));
+        return out;
+    }
 
     private List<FileModel> listFile(File file) {
         List<FileModel> dirs = new ArrayList<>();

@@ -88,20 +88,13 @@ public class GlobalBeanCollection {
             }
         }
         try {
-            rd.msgType=MsgType.SUCC;
             ModelOutBase invoke = (ModelOutBase) method.invoke(obj, rd);
-            invoke.setData(rd);
             return invoke;
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            ModelInBase modelInBase = new Gson().fromJson(rd.data, ModelInBase.class);
             ModelOutBase modelOutBase = new ModelOutBase();
-            rd.msgType = MsgType.ERROR;
-            rd.data = e.getMessage();
-            String uuid = modelInBase.getUuid();
-
-            modelOutBase.setUuid(uuid);
-            modelOutBase.setData(rd);
+            modelOutBase.setMsg(e.getMessage());
+            modelOutBase.setMsgType(MsgType.ERROR);
             return modelOutBase;
         }
     }

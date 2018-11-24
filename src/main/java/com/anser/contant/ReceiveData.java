@@ -7,10 +7,7 @@ package com.anser.contant;
  * @time 2018年1月15日 下午9:35:38
  */
 public class ReceiveData {
-    /**
-     * @see MsgType
-     */
-    public int msgType;
+
     /**
      * @see DataType
      */

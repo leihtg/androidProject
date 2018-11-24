@@ -12,7 +12,12 @@ import com.anser.contant.ReceiveData;
 public class ModelOutBase {
     private String uuid;
 
-    private ReceiveData data;
+    /**
+     * @see MsgType
+     */
+    public int msgType = MsgType.SUCC;//默认为succ
+
+    public String msg;
 
     public String getUuid() {
         return uuid;
@@ -22,11 +27,19 @@ public class ModelOutBase {
         this.uuid = uuid;
     }
 
-    public ReceiveData getData() {
-        return this.data;
+    public int getMsgType() {
+        return msgType;
     }
 
-    public void setData(ReceiveData data) {
-        this.data = data;
+    public void setMsgType(int msgType) {
+        this.msgType = msgType;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }
