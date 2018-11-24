@@ -1,6 +1,6 @@
 package com.anser.model.base;
 
-import com.anser.enums.MsgType;
+import com.anser.enums.ActionType;
 
 /**
  * 向服务器传送数据model的基类 将几乎所有接口访问需要上传的接口的参数
@@ -10,7 +10,7 @@ import com.anser.enums.MsgType;
  */
 public class ModelInBase {
 	private String uuid;
-	private MsgType busType;// 业务类型
+	private ActionType busType;// 业务类型
 
 	public String getUuid() {
 		return uuid;
@@ -20,11 +20,11 @@ public class ModelInBase {
 		this.uuid = uuid;
 	}
 
-	public MsgType getBusType() {
+	public ActionType getBusType() {
 		return busType;
 	}
 
-	public void setBusType(MsgType busType) {
+	public void setBusType(ActionType busType) {
 		this.busType = busType;
 	}
 

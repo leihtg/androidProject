@@ -12,7 +12,7 @@ public class Contant {
     //版本
     public static final int VERSION = 1;
     // 服务端监听端口
-    public static final int SERVER_PORT = 8877;
+    public static final int SERVER_PORT = 8093;
     // 广播端口,客户端/服务端各自监听自己本地的端口号
     public static final int BROCAST_PORT = 7777;
     // 请求主机地址信息

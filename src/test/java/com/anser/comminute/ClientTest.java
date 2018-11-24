@@ -10,12 +10,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.nio.file.Files;
 import java.util.Arrays;
 
 import com.anser.contant.Contant;
 import com.anser.contant.DataType;
-import com.anser.enums.MsgType;
+import com.anser.enums.ActionType;
 import com.anser.model.FileTransfer_in;
 import com.anser.util.BagPacket;
 import com.google.gson.Gson;
@@ -48,7 +47,7 @@ public class ClientTest {
 				fi.setName(file.getName());
 				fi.setPath("myCloud");
 				fi.setUuid("uuid");
-				fi.setBusType(MsgType.UP_LOAD);
+				fi.setBusType(ActionType.UP_LOAD);
 				fi.setBuf(Arrays.copyOf(buf, i));
 
 				byte[] bytes = gson.toJson(fi).getBytes("UTF-8");

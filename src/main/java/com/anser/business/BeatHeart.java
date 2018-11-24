@@ -4,7 +4,7 @@ import com.anser.annotation.BusinessType;
 import com.anser.annotation.Scope;
 import com.anser.business.inter.BusinessInter;
 import com.anser.contant.ReceiveData;
-import com.anser.enums.MsgType;
+import com.anser.enums.ActionType;
 import com.anser.model.base.ModelOutBase;
 
 /**
@@ -17,7 +17,7 @@ import com.anser.model.base.ModelOutBase;
 public class BeatHeart implements BusinessInter {
 
 	@Override
-	@BusinessType(MsgType.BEAT_HEART)
+	@BusinessType(ActionType.BEAT_HEART)
 	public ModelOutBase call(ReceiveData rd) {
 		return new ModelOutBase();
 	}

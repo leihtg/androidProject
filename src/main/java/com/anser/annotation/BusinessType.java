@@ -8,7 +8,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.anser.enums.MsgType;
+import com.anser.enums.ActionType;
 
 /**
  * @author leihuating
@@ -17,5 +17,5 @@ import com.anser.enums.MsgType;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface BusinessType {
-	MsgType value();
+	ActionType value();
 }

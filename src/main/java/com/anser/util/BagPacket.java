@@ -104,7 +104,7 @@ public class BagPacket {
 		// 读包体
 		receiveByLen(is, body);
 		rd = new ReceiveData();
-		rd.type = bp.type;
+		rd.dataType = bp.type;
 		rd.data = new String(body, "UTF-8");
 
 		return rd;

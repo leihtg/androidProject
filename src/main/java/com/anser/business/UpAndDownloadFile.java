@@ -12,7 +12,7 @@ import com.anser.annotation.Scope;
 import com.anser.business.inter.BusinessInter;
 import com.anser.contant.Contant;
 import com.anser.contant.ReceiveData;
-import com.anser.enums.MsgType;
+import com.anser.enums.ActionType;
 import com.anser.model.FileTransfer_in;
 import com.anser.model.base.ModelOutBase;
 import com.google.gson.JsonSyntaxException;
@@ -25,7 +25,7 @@ import com.google.gson.JsonSyntaxException;
 public class UpAndDownloadFile implements BusinessInter {
 
 	@Override
-	@BusinessType(MsgType.DOWN_LOAD)
+	@BusinessType(ActionType.DOWN_LOAD)
 	public ModelOutBase call(ReceiveData rd) {
 
 		return null;
@@ -33,7 +33,7 @@ public class UpAndDownloadFile implements BusinessInter {
 
 	RandomAccessFile raf = null;
 
-	@BusinessType(MsgType.UP_LOAD)
+	@BusinessType(ActionType.UP_LOAD)
 	public ModelOutBase callUp(ReceiveData rd) {
 		try {
 			FileTransfer_in fi = gson.fromJson(rd.data, FileTransfer_in.class);
