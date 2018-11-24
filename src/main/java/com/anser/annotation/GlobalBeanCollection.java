@@ -88,7 +88,10 @@ public class GlobalBeanCollection {
             }
         }
         try {
-            return (ModelOutBase) method.invoke(obj, rd);
+            rd.msgType=MsgType.SUCC;
+            ModelOutBase invoke = (ModelOutBase) method.invoke(obj, rd);
+            invoke.setData(rd);
+            return invoke;
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             e.printStackTrace();
             ModelInBase modelInBase = new Gson().fromJson(rd.data, ModelInBase.class);
