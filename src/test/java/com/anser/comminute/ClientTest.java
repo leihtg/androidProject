@@ -44,7 +44,6 @@ public class ClientTest {
 
 				fi.setPos(pos);
 				fi.setLength(length);
-				fi.setName(file.getName());
 				fi.setPath("myCloud");
 				fi.setUuid("uuid");
 				fi.setBusType(ActionType.UP_LOAD);

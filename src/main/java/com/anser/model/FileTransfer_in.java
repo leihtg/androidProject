@@ -14,7 +14,6 @@ import com.anser.model.base.ModelInBase;
 public class FileTransfer_in extends ModelInBase {
 	private long length;
 	private long pos;
-	private String name;
 	private String path;
 	private byte[] buf;
 
@@ -32,14 +31,6 @@ public class FileTransfer_in extends ModelInBase {
 
 	public void setPos(long pos) {
 		this.pos = pos;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getPath() {

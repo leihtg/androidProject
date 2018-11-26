@@ -38,7 +38,7 @@ public class HandleClientThread extends Thread {
             InputStream is = client.getInputStream();
             while (isConnect) {
                 ReceiveData rd = BagPacket.readData(is);
-                System.out.println("recv:" + rd.dataType + ",json:" + rd.data);
+//                System.out.println("recv:" + rd.dataType + ",json:" + rd.data);
                 mqueue.put(rd);
             }
         } catch (Exception e) {
