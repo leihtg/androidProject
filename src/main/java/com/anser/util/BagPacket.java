@@ -109,7 +109,7 @@ public class BagPacket {
         rd.dataType = bp.type;
         rd.data = new String(body, "UTF-8");
 
-        System.out.println("query body:" + bp.length);
+//        System.out.println("query body:" + bp.length);
         return rd;
     }
 

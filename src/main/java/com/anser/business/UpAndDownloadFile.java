@@ -59,11 +59,13 @@ public class UpAndDownloadFile implements BusinessInter {
             FileTransfer_out out = new FileTransfer_out();
             FileModel of = new FileModel();
             of.setPath(path);
+            of.setName(file.getName());
             of.setDir(file.isDirectory());
             of.setLength(file.length());
             of.setLastModified(file.lastModified());
 
             out.setModel(of);
+            out.setPos(in.getPos());
 
             rf.seek(in.getPos());
             byte[] buf = new byte[2048];
