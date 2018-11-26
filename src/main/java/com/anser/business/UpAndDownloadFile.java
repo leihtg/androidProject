@@ -54,6 +54,7 @@ public class UpAndDownloadFile implements BusinessInter {
             FileModel of = new FileModel();
             of.setPath(path);
             of.setDir(file.isDirectory());
+            of.setLength(file.length());
             of.setLastModified(file.lastModified());
 
             out.setModel(of);
