@@ -32,6 +32,12 @@ public class UpAndDownloadFile implements BusinessInter {
     private static ConcurrentHashMap<String, RandomAccessFile> upFileMap = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<String, RandomAccessFile> dwFileMap = new ConcurrentHashMap<>();
 
+    /**
+     * 从服务器下载到安卓
+     *
+     * @param rd
+     * @return
+     */
     @Override
     @BusinessType(ActionType.DOWN_LOAD)
     public ModelOutBase call(ReceiveData rd) {
@@ -83,10 +89,15 @@ public class UpAndDownloadFile implements BusinessInter {
             e.printStackTrace();
         }
 
-
         return null;
     }
 
+    /**
+     * 从安卓上传到服务器
+     *
+     * @param rd
+     * @return
+     */
     @BusinessType(ActionType.UP_LOAD)
     public ModelOutBase callUp(ReceiveData rd) {
         try {
@@ -99,6 +110,7 @@ public class UpAndDownloadFile implements BusinessInter {
                 if (!file.getParentFile().exists()) {
                     file.getParentFile().mkdirs();
                 }
+                file.setLastModified(model.getLastModified());
                 raf = new RandomAccessFile(file, "rw");
                 upFileMap.put(path, raf);
             }
@@ -106,6 +118,7 @@ public class UpAndDownloadFile implements BusinessInter {
             raf.write(fi.getBuf());
             if (fi.getPos() + fi.getBuf().length == model.getLength()) {
                 raf.close();
+
                 upFileMap.remove(path);
             }
             FileTransfer_out out = new FileTransfer_out();
