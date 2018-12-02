@@ -3,10 +3,7 @@
  */
 package com.anser.business;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.util.Arrays;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -103,26 +100,36 @@ public class UpAndDownloadFile implements BusinessInter {
     @BusinessType(ActionType.UP_LOAD)
     public ModelOutBase callUp(ReceiveData rd) {
         try {
-            FileTransfer_in fi = gson.fromJson(rd.data, FileTransfer_in.class);
-            FileModel model = fi.getModel();
+            FileTransfer_in fin = gson.fromJson(rd.data, FileTransfer_in.class);
+            FileModel model = fin.getModel();
             String path = model.getPath();
-            RandomAccessFile raf = upFileMap.get(path);
-            if (raf == null) {
-                File file = new File(Contant.HOME_DIR + File.separator + path);
-                if (!file.getParentFile().exists()) {
-                    file.getParentFile().mkdirs();
+            String localPath = Contant.HOME_DIR + File.separator + path;
+            if (model.isDir()) {
+                File file = new File(localPath);
+                if (!file.exists()) {
+                    file.mkdirs();
                 }
                 file.setLastModified(model.getLastModified());
-                raf = new RandomAccessFile(file, "rw");
-                upFileMap.put(path, raf);
+            } else {
+                RandomAccessFile raf = upFileMap.get(path);
+                if (raf == null) {
+                    File file = new File(localPath);
+                    if (!file.getParentFile().exists()) {
+                        file.getParentFile().mkdirs();
+                    }
+                    raf = new RandomAccessFile(file, "rw");
+                    file.setLastModified(model.getLastModified());
+                    upFileMap.put(path, raf);
+                }
+                raf.seek(fin.getPos());
+                raf.write(fin.getBuf());
+                if (fin.getPos() + fin.getBuf().length == model.getLength()) {
+                    raf.close();
+                    new File(localPath).setLastModified(model.getLastModified());
+                    upFileMap.remove(path);
+                }
             }
-            raf.seek(fi.getPos());
-            raf.write(fi.getBuf());
-            if (fi.getPos() + fi.getBuf().length == model.getLength()) {
-                raf.close();
 
-                upFileMap.remove(path);
-            }
             FileTransfer_out out = new FileTransfer_out();
             FileModel fm = new FileModel();
             fm.setPath(path);

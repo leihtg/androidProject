@@ -1,12 +1,16 @@
 package com.anser.model;
 
+import java.io.Serializable;
+
 /**
  * 用来传输的file model
  *
  * @author lht
  * @time 2018年1月14日 下午5:38:29
  */
-public class FileModel {
+public class FileModel implements Serializable {
+    private static final long serialVersionUID = 125L;
+
     private String name;
     private String path;
     private boolean dir;
