@@ -59,16 +59,17 @@ public class FileTransferThread extends Thread {
                             return;
                         }
                         int headLen = BitConvert.convertToInt(buf, 0, 4);
-                        read = is.read(buf, 0, 4);
+                        read = is.read(buf, 0, 8);
                         if (-1 == read) {
                             return;
                         }
-                        int bodyLen = BitConvert.convertToInt(buf, 0, 4);
+                        long bodyLen = BitConvert.convertToLong(buf, 0, 8);
 
-                        int readLen = 0, pos = 0;
+                        long readLen = 0;
+                        int pos = 0;
                         StringBuilder sb = new StringBuilder();
                         while (readLen < headLen) {
-                            pos = headLen - readLen > bufLen ? bufLen : headLen - readLen;
+                            pos = (int) (headLen - readLen > bufLen ? bufLen : headLen - readLen);
                             read = is.read(buf, 0, pos);
                             if (-1 == read) {
                                 return;
@@ -86,6 +87,7 @@ public class FileTransferThread extends Thread {
                         try {
                             FileModel model = gson.fromJson(sb.toString(), FileModel.class);
                             String path = model.getPath();
+                            System.out.println("path = " + path);
                             file = new File(Contant.HOME_DIR, path);
                             lastModified = model.getLastModified();
                             if (model.isDir()) {
@@ -117,11 +119,12 @@ public class FileTransferThread extends Thread {
                             }
                         } catch (Exception e) {
                             System.out.println("sb = " + sb);
+                            e.printStackTrace();
                         }
                         //写文件内容
                         readLen = 0;
                         while (readLen < bodyLen) {
-                            pos = bodyLen - readLen > bufLen ? bufLen : bodyLen - readLen;
+                            pos = (int) (bodyLen - readLen > bufLen ? bufLen : bodyLen - readLen);
                             read = is.read(buf, 0, pos);
                             if (-1 == read) {
                                 return;
@@ -137,6 +140,7 @@ public class FileTransferThread extends Thread {
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
+                        break;
                     } catch (JsonSyntaxException e) {
                         e.printStackTrace();
                     }
