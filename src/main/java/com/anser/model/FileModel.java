@@ -1,3 +1,4 @@
+
 package com.anser.model;
 
 import java.io.Serializable;
@@ -9,51 +10,90 @@ import java.io.Serializable;
  * @time 2018年1月14日 下午5:38:29
  */
 public class FileModel implements Serializable {
+
     private static final long serialVersionUID = 125L;
 
-    private String name;
-    private String path;
-    private boolean dir;
-    private long lastModified;
-    private long length;
+    private String            name;
+
+    private String            path;
+
+    private boolean           dir;
+
+    private long              createTime;
+
+    private long              lastModified;
+
+    private long              lastAccessTime;
+
+    private long              length;
 
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public boolean isDir() {
+
         return dir;
     }
 
     public void setDir(boolean dir) {
+
         this.dir = dir;
     }
 
     public long getLastModified() {
+
         return lastModified;
     }
 
     public void setLastModified(long lastModified) {
+
         this.lastModified = lastModified;
     }
 
     public long getLength() {
+
         return length;
     }
 
     public void setLength(long length) {
+
         this.length = length;
     }
 
     public String getPath() {
+
         return path;
     }
 
     public void setPath(String path) {
+
         this.path = path;
+    }
+
+    public long getCreateTime() {
+
+        return this.createTime;
+    }
+
+    public void setCreateTime(long createTime) {
+
+        this.createTime = createTime;
+    }
+
+    public long getLastAccessTime() {
+
+        return this.lastAccessTime;
+    }
+
+    public void setLastAccessTime(long lastAccessTime) {
+
+        this.lastAccessTime = lastAccessTime;
     }
 }

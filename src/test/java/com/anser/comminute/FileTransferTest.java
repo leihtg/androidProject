@@ -1,3 +1,4 @@
+
 package com.anser.comminute;
 
 import com.anser.model.FileModel;
@@ -8,6 +9,9 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 import static com.anser.contant.Contant.FILE_SOCKET_PORT;
 
@@ -16,26 +20,41 @@ import static com.anser.contant.Contant.FILE_SOCKET_PORT;
  * @date 2018/12/17 14:39
  */
 public class FileTransferTest {
-    static String dir = "E:\\soft";
+
+    static String dir = "E:\\workspace";
 
     public static void main(String[] args) throws IOException {
-        File file = new File(dir);
-        List<FileModel> list = new ArrayList<>();
-        scan(file, list);
+
+        String fDir = FileTransferTest.dir;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("输入发送文件:");
+        while (scanner.hasNext()) {
+            String str = scanner.nextLine();
+            if (str.trim().length() != 0) {
+                fDir = str;
+                break;
+            }
+        }
+        File file = new File(fDir);
+        dirLen = file.getParent().length();
 
         Socket socket = new Socket("localhost", FILE_SOCKET_PORT);
         OutputStream os = socket.getOutputStream();
         InputStream is = socket.getInputStream();
-        os.write(1);//1上传
-        for (FileModel fm : list) {
-            System.out.println("fm = " + fm.getPath());
-            sendFile(fm, os, is);
-        }
+        os.write(1);// 1上传
+        scan(file, f -> {
+            try {
+                sendFile(f, os, is);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         socket.close();
 
     }
 
-    static void scan(File file, List<FileModel> list) {
+    static void scan(File file, Consumer<FileModel> fun) {
+
         if (null == file || !file.canRead()) {
             return;
         }
@@ -52,23 +71,26 @@ public class FileTransferTest {
                 return;
             }
             for (File f : files) {
-                scan(f, list);
+                scan(f, fun);
             }
-            list.add(e);
+            fun.accept(e);
         } else {
-            list.add(e);
+            fun.accept(e);
         }
     }
 
-    static int dirLen = dir.length();
+    static int  dirLen;
+
     static Gson gson = new Gson();
 
     static long start, end, prePos = 0;
 
     static void sendFile(FileModel model, OutputStream os, InputStream is) throws IOException {
+
         String path = model.getPath();
         File file = new File(path);
-        if (!file.exists()) {
+        if (!file.canRead()) {
+            System.out.println("can not read file = " + file);
             return;
         }
         model.setPath(path.substring(dirLen));
@@ -78,20 +100,21 @@ public class FileTransferTest {
         write(os, head);
         write(os, bs);
         int send = is.read();
-        if (send != 1) {//如果=1时才传输
+        if (send != 1) {// 如果=1时才传输
+            return;
+        }
+        if (model.isDir()) {
             return;
         }
         try (FileInputStream fis = new FileInputStream(path)) {
             BufferedInputStream bis = new BufferedInputStream(fis);
-            byte[] buf = new byte[2048];
+            byte[] buf = new byte[4096];
             int len = 0;
             while ((len = bis.read(buf)) != -1) {
                 write(os, buf, len);
             }
             bis.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -99,14 +122,21 @@ public class FileTransferTest {
     static int showLen;
 
     private static void write(OutputStream os, byte[] buf, int len) throws IOException {
+
         os.write(buf, 0, len);
         prePos += len;
-        if ((end = System.currentTimeMillis()) - start >= 1000) {//每秒发送一次
+        if ((end = System.currentTimeMillis()) - start >= 1000) {// 每秒发送一次
             if (showLen != 0) {
                 while (showLen-- > 0)
                     System.out.print("\b \b");
             }
-            String speed = "prePos = " + prePos / (1024 * 1024) + " MB/s";
+            long per = prePos / (1024 * 1024);
+            String unit = " MB/s";
+            if (per == 0) {
+                per = prePos / 1024;
+                unit = " KB/s";
+            }
+            String speed = "prePos = " + per + unit;
             System.out.print(speed);
             showLen = speed.length();
             start = end;
@@ -115,6 +145,7 @@ public class FileTransferTest {
     }
 
     private static void write(OutputStream os, byte[] bs) throws IOException {
+
         write(os, bs, bs.length);
     }
 }

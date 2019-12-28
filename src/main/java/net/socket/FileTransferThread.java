@@ -10,14 +10,13 @@ import com.google.gson.JsonSyntaxException;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 /**
  * @author lht
  * @time 2018/12/15 19:48
  */
 public class FileTransferThread extends Thread {
-
-    Gson gson = new Gson();
 
     @Override
     public void run() {
@@ -54,9 +53,19 @@ public class FileTransferThread extends Thread {
         public void run() {
 
             try {
+                String homeDir = Contant.HOME_DIR;
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("请输入保存文件目录:");
+                while (scanner.hasNext()) {
+                    String str = scanner.nextLine();
+                    if (str.trim().length() != 0) {
+                        homeDir = str;
+                        break;
+                    }
+                }
                 InputStream is = socket.getInputStream();
                 OutputStream os = socket.getOutputStream();
-                int bufLen = 2048, read = 0;
+                int bufLen = 4096, read = 0;
                 byte[] buf = new byte[bufLen];
                 while (true) {
                     try {
@@ -75,40 +84,21 @@ public class FileTransferThread extends Thread {
                             sb.append(new String(buf, 0, read, "utf8"));
                             readLen += read;
                         }
-
-                        FileModel model = gson.fromJson(sb.toString(), FileModel.class);
+                        FileModel model = new Gson().fromJson(sb.toString(), FileModel.class);
                         String path = model.getPath();
                         System.out.println("path = " + path);
-                        File file = new File(Contant.HOME_DIR, path);
+                        File file = new File(homeDir, path);
 
-                        long lastModified = model.getLastModified();
-                        long fileLen = model.getLength();
-                        boolean exists = file.exists();
-                        if (model.isDir()) {
-                            if (!exists) {
-                                file.mkdirs();
-                                file.setLastModified(lastModified);
-                            }
-                            if (file.lastModified() > lastModified) {
-                                file.setLastModified(lastModified);
-                            }
-                        }
-                        if (!exists) {
-                            if (!file.getParentFile().exists()) {
-                                file.getParentFile().mkdirs();
-                            }
-                        }
-                        if (file.length() == fileLen) {
-                            if (file.lastModified() > lastModified) {
-                                file.setLastModified(lastModified);
-                            }
-                        }
-                        if (exists) {// 文件存在就不传输了
+                        processFileAttr(model, file);
+
+                        if (file.exists() || model.isDir()) {// 文件存在就不传输了
                             os.write(0);
                             continue;
                         } else {
                             os.write(1);
                         }
+
+                        long fileLen = model.getLength();
                         try (FileOutputStream fos = new FileOutputStream(file);) {
                             // 写文件内容
                             readLen = 0;
@@ -123,7 +113,7 @@ public class FileTransferThread extends Thread {
                                 }
                                 readLen += read;
                             }
-                            file.setLastModified(lastModified);
+                            file.setLastModified(model.getLastModified());
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -135,6 +125,33 @@ public class FileTransferThread extends Thread {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        }
+
+        private void processFileAttr(FileModel model, File file) {
+
+            long lastModified = model.getLastModified();
+            boolean exists = file.exists();
+            long fileLen = model.getLength();
+
+            if (model.isDir()) {
+                if (!exists) {
+                    file.mkdirs();
+                    file.setLastModified(lastModified);
+                }
+                if (file.lastModified() > lastModified) {
+                    file.setLastModified(lastModified);
+                }
+            }
+            if (!exists) {
+                if (!file.getParentFile().exists()) {
+                    file.getParentFile().mkdirs();
+                }
+            }
+            if (file.length() == fileLen) {
+                if (file.lastModified() > lastModified) {
+                    file.setLastModified(lastModified);
+                }
             }
         }
     }
