@@ -9,6 +9,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.anser.contant.Contant.FILE_SOCKET_PORT;
+
 /**
  * @auth leihtg
  * @date 2018/12/17 14:39
@@ -21,12 +23,13 @@ public class FileTransferTest {
         List<FileModel> list = new ArrayList<>();
         scan(file, list);
 
-        Socket socket = new Socket("localhost", 8181);
+        Socket socket = new Socket("localhost", FILE_SOCKET_PORT);
         OutputStream os = socket.getOutputStream();
+        InputStream is = socket.getInputStream();
         os.write(1);//1上传
         for (FileModel fm : list) {
             System.out.println("fm = " + fm.getPath());
-            sendFile(fm, os);
+            sendFile(fm, os, is);
         }
         socket.close();
 
@@ -62,7 +65,7 @@ public class FileTransferTest {
 
     static long start, end, prePos = 0;
 
-    static void sendFile(FileModel model, OutputStream os) throws IOException {
+    static void sendFile(FileModel model, OutputStream os, InputStream is) throws IOException {
         String path = model.getPath();
         File file = new File(path);
         if (!file.exists()) {
@@ -72,31 +75,18 @@ public class FileTransferTest {
         String fileInfo = gson.toJson(model);
         byte[] bs = fileInfo.getBytes("utf8");
         byte[] head = BitConvert.convertToBytes(bs.length, 4);
-        os.write(head);
-        if (file.isDirectory()) {
-            os.write(BitConvert.convertToBytes(0));
-            os.write(bs);
+        write(os, head);
+        write(os, bs);
+        int send = is.read();
+        if (send != 1) {//如果=1时才传输
             return;
         }
-        long length = model.getLength();
-        os.write(BitConvert.convertToBytes(length));
-        os.write(bs);
         try (FileInputStream fis = new FileInputStream(path)) {
             BufferedInputStream bis = new BufferedInputStream(fis);
             byte[] buf = new byte[2048];
             int len = 0;
-            int pos = 0;
-
-            start = System.currentTimeMillis();
             while ((len = bis.read(buf)) != -1) {
-                os.write(buf, 0, len);
-                pos += len;
-                prePos += len;
-                if ((end = System.currentTimeMillis()) - start >= 1000) {//每秒发送一次
-                    System.out.println("prePos = " + prePos / (1024 * 1024) + "MB/s");
-                    start = end;
-                    prePos = 0;
-                }
+                write(os, buf, len);
             }
             bis.close();
         } catch (FileNotFoundException e) {
@@ -104,5 +94,27 @@ public class FileTransferTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    static int showLen;
+
+    private static void write(OutputStream os, byte[] buf, int len) throws IOException {
+        os.write(buf, 0, len);
+        prePos += len;
+        if ((end = System.currentTimeMillis()) - start >= 1000) {//每秒发送一次
+            if (showLen != 0) {
+                while (showLen-- > 0)
+                    System.out.print("\b \b");
+            }
+            String speed = "prePos = " + prePos / (1024 * 1024) + " MB/s";
+            System.out.print(speed);
+            showLen = speed.length();
+            start = end;
+            prePos = 0;
+        }
+    }
+
+    private static void write(OutputStream os, byte[] bs) throws IOException {
+        write(os, bs, bs.length);
     }
 }
