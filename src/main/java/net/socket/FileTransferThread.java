@@ -10,6 +10,9 @@ import com.google.gson.JsonSyntaxException;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.attribute.FileTime;
 import java.util.Scanner;
 
 /**
@@ -53,6 +56,7 @@ public class FileTransferThread extends Thread {
         public void run() {
 
             try {
+                Gson gson = new Gson();
                 String homeDir = Contant.HOME_DIR;
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("请输入保存文件目录:");
@@ -70,7 +74,9 @@ public class FileTransferThread extends Thread {
                 while (true) {
                     try {
                         int headLen = readHeadLen(is);
-
+                        if (headLen == 0) {// 对方已关闭
+                            break;
+                        }
                         long readLen = 0;
                         int pos = 0;
                         StringBuilder sb = new StringBuilder();
@@ -84,7 +90,7 @@ public class FileTransferThread extends Thread {
                             sb.append(new String(buf, 0, read, "utf8"));
                             readLen += read;
                         }
-                        FileModel model = new Gson().fromJson(sb.toString(), FileModel.class);
+                        FileModel model = gson.fromJson(sb.toString(), FileModel.class);
                         String path = model.getPath();
                         System.out.println("path = " + path);
                         File file = new File(homeDir, path);
@@ -113,7 +119,7 @@ public class FileTransferThread extends Thread {
                                 }
                                 readLen += read;
                             }
-                            file.setLastModified(model.getLastModified());
+                            processFileAttr(model, file);
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -128,31 +134,24 @@ public class FileTransferThread extends Thread {
             }
         }
 
-        private void processFileAttr(FileModel model, File file) {
+        private void processFileAttr(FileModel model, File file) throws IOException {
 
             long lastModified = model.getLastModified();
             boolean exists = file.exists();
-            long fileLen = model.getLength();
 
-            if (model.isDir()) {
-                if (!exists) {
-                    file.mkdirs();
-                    file.setLastModified(lastModified);
-                }
-                if (file.lastModified() > lastModified) {
-                    file.setLastModified(lastModified);
-                }
+            if (!exists && model.isDir()) {
+                file.mkdirs();
             }
             if (!exists) {
                 if (!file.getParentFile().exists()) {
                     file.getParentFile().mkdirs();
                 }
+                return;
             }
-            if (file.length() == fileLen) {
-                if (file.lastModified() > lastModified) {
-                    file.setLastModified(lastModified);
-                }
-            }
+            Path path = file.toPath();
+            Files.setAttribute(path, "creationTime", FileTime.fromMillis(model.getCreationTime()));
+            Files.setAttribute(path, "lastAccessTime", FileTime.fromMillis(model.getLastAccessTime()));
+            Files.setLastModifiedTime(path, FileTime.fromMillis(lastModified));
         }
     }
 

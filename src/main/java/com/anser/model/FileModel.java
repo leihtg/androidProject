@@ -19,7 +19,7 @@ public class FileModel implements Serializable {
 
     private boolean           dir;
 
-    private long              createTime;
+    private long              creationTime;
 
     private long              lastModified;
 
@@ -77,14 +77,14 @@ public class FileModel implements Serializable {
         this.path = path;
     }
 
-    public long getCreateTime() {
+    public long getCreationTime() {
 
-        return this.createTime;
+        return creationTime;
     }
 
-    public void setCreateTime(long createTime) {
+    public void setCreationTime(long creationTime) {
 
-        this.createTime = createTime;
+        this.creationTime = creationTime;
     }
 
     public long getLastAccessTime() {

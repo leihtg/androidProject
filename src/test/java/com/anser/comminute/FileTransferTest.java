@@ -7,6 +7,8 @@ import com.google.gson.Gson;
 
 import java.io.*;
 import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,20 +27,16 @@ public class FileTransferTest {
 
     public static void main(String[] args) throws IOException {
 
-        String fDir = FileTransferTest.dir;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("输入服务器IP:");
+        String localhost = readLine(scanner);
         System.out.println("输入发送文件:");
-        while (scanner.hasNext()) {
-            String str = scanner.nextLine();
-            if (str.trim().length() != 0) {
-                fDir = str;
-                break;
-            }
-        }
+        String fDir = readLine(scanner);
+
         File file = new File(fDir);
         dirLen = file.getParent().length();
 
-        Socket socket = new Socket("localhost", FILE_SOCKET_PORT);
+        Socket socket = new Socket(localhost, FILE_SOCKET_PORT);
         OutputStream os = socket.getOutputStream();
         InputStream is = socket.getInputStream();
         os.write(1);// 1上传
@@ -53,17 +51,52 @@ public class FileTransferTest {
 
     }
 
-    static void scan(File file, Consumer<FileModel> fun) {
+    private static String readLine(Scanner scanner) {
+
+        String str = null;
+        while (scanner.hasNext()) {
+            str = scanner.nextLine();
+            if (str.trim().length() != 0) {
+                break;
+            }
+        }
+        return str;
+    }
+
+    static FileOutputStream efos;
+
+    static void log(String type, String msg) {
+        if (null == efos) {
+            try {
+                efos = new FileOutputStream("err.log");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            efos.write((type+" : "+msg).getBytes("utf8"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void scan(File file, Consumer<FileModel> fun) throws IOException {
 
         if (null == file || !file.canRead()) {
+            log("can not read", file.getAbsolutePath());
             return;
         }
+        BasicFileAttributes attr = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
+
         boolean isdir = file.isDirectory();
+
         FileModel e = new FileModel();
         e.setPath(file.getAbsolutePath());
         e.setLength(file.length());
         e.setDir(isdir);
-        e.setLastModified(file.lastModified());
+        e.setCreationTime(attr.creationTime().toMillis());
+        e.setLastModified(attr.lastModifiedTime().toMillis());
+        e.setLastAccessTime(attr.lastAccessTime().toMillis());
         e.setName(file.getName());
         if (isdir) {
             File[] files = file.listFiles();
@@ -81,8 +114,6 @@ public class FileTransferTest {
 
     static int  dirLen;
 
-    static Gson gson = new Gson();
-
     static long start, end, prePos = 0;
 
     static void sendFile(FileModel model, OutputStream os, InputStream is) throws IOException {
@@ -90,11 +121,11 @@ public class FileTransferTest {
         String path = model.getPath();
         File file = new File(path);
         if (!file.canRead()) {
-            System.out.println("can not read file = " + file);
+            log("can not read", file.getAbsolutePath());
             return;
         }
         model.setPath(path.substring(dirLen));
-        String fileInfo = gson.toJson(model);
+        String fileInfo = new Gson().toJson(model);
         byte[] bs = fileInfo.getBytes("utf8");
         byte[] head = BitConvert.convertToBytes(bs.length, 4);
         write(os, head);
