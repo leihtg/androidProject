@@ -1,29 +1,24 @@
 
-package com.anser.comminute;
+package net.server;
 
-import com.anser.model.FileModel;
-import com.anser.util.BitConvert;
-import com.google.gson.Gson;
+import static com.anser.contant.Contant.FILE_SOCKET_PORT;
 
 import java.io.*;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
-import static com.anser.contant.Contant.FILE_SOCKET_PORT;
+import com.anser.model.FileModel;
+import com.anser.util.BitConvert;
+import com.google.gson.Gson;
 
 /**
  * @auth leihtg
  * @date 2018/12/17 14:39
  */
-public class FileTransferTest {
-
-    static String dir = "E:\\workspace";
+public class FileTransferClient {
 
     public static void main(String[] args) throws IOException {
 

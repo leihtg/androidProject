@@ -119,8 +119,8 @@ public class FileTransferThread extends Thread {
                                 }
                                 readLen += read;
                             }
-                            processFileAttr(model, file);
                         }
+                        processFileAttr(model, file);
                     } catch (IOException e) {
                         e.printStackTrace();
                         break;
