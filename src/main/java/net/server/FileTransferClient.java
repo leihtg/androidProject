@@ -20,30 +20,63 @@ import com.google.gson.Gson;
  */
 public class FileTransferClient {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("输入服务器IP:");
-        String localhost = readLine(scanner);
-        System.out.println("输入发送文件:");
-        String fDir = readLine(scanner);
+        System.out.println("start...");
+        Scanner scan = new Scanner(System.in);
+        String host = null;
+        while (true) {
+            System.out.print(">>");
+            String input = scan.nextLine();
+            if (input.equals("quit")) {
+                break;
+            } else if (input.equals("send")) {
+                if (null == host) {
+                    System.out.println(">>输入服务器IP:");
+                    host = readLine(scan);
+                }
+                System.out.println(">>输入发送文件:");
+                String fDir = readLine(scan);
+                sendFile(host, fDir);
 
-        File file = new File(fDir);
-        dirLen = file.getParent().length();
-
-        Socket socket = new Socket(localhost, FILE_SOCKET_PORT);
-        OutputStream os = socket.getOutputStream();
-        InputStream is = socket.getInputStream();
-        os.write(1);// 1上传
-        scan(file, f -> {
-            try {
-                sendFile(f, os, is);
-            } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("send over");
+            } else if (input.equals("changeHost")) {
+                System.out.println(">>输入服务器IP:");
+                host = readLine(scan);
+            } else {
+                System.out.println("Type \"send\" to send file!");
+                System.out.println("Type \"changeHost\" to change host!");
+                System.out.println("Type \"quit\" to leave !");
             }
-        });
-        socket.close();
+        }
 
+    }
+
+    private static void sendFile(String localhost, String fDir) {
+
+        try {
+            File file = new File(fDir);
+            if (!file.exists()) {
+                System.out.println("文件不存在:" + file);
+                return;
+            }
+            dirLen = file.getParent().length();
+
+            Socket socket = new Socket(localhost, FILE_SOCKET_PORT);
+            OutputStream os = socket.getOutputStream();
+            InputStream is = socket.getInputStream();
+            os.write(1);// 1上传
+            scan(file, f -> {
+                try {
+                    sendFile(f, os, is);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static String readLine(Scanner scanner) {
@@ -61,6 +94,7 @@ public class FileTransferClient {
     static FileOutputStream efos;
 
     static void log(String type, String msg) {
+
         if (null == efos) {
             try {
                 efos = new FileOutputStream("err.log");
@@ -69,7 +103,7 @@ public class FileTransferClient {
             }
         }
         try {
-            efos.write((type+" : "+msg).getBytes("utf8"));
+            efos.write((type + " : " + msg).getBytes("utf8"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -123,8 +157,8 @@ public class FileTransferClient {
         String fileInfo = new Gson().toJson(model);
         byte[] bs = fileInfo.getBytes("utf8");
         byte[] head = BitConvert.convertToBytes(bs.length, 4);
-        write(os, head);
-        write(os, bs);
+        write(path, os, head);
+        write(path, os, bs);
         int send = is.read();
         if (send != 1) {// 如果=1时才传输
             return;
@@ -137,7 +171,7 @@ public class FileTransferClient {
             byte[] buf = new byte[4096];
             int len = 0;
             while ((len = bis.read(buf)) != -1) {
-                write(os, buf, len);
+                write(path, os, buf, len);
             }
             bis.close();
         } catch (Exception e) {
@@ -145,33 +179,39 @@ public class FileTransferClient {
         }
     }
 
-    static int showLen;
-
-    private static void write(OutputStream os, byte[] buf, int len) throws IOException {
+    private static void write(String path, OutputStream os, byte[] buf, int len) throws IOException {
 
         os.write(buf, 0, len);
         prePos += len;
         if ((end = System.currentTimeMillis()) - start >= 1000) {// 每秒发送一次
-            if (showLen != 0) {
-                while (showLen-- > 0)
-                    System.out.print("\b \b");
-            }
+
             long per = prePos / (1024 * 1024);
             String unit = " MB/s";
             if (per == 0) {
                 per = prePos / 1024;
                 unit = " KB/s";
             }
-            String speed = "prePos = " + per + unit;
-            System.out.print(speed);
-            showLen = speed.length();
+            String speed = "发送文件: " + path + ", speed = " + per + unit;
+            writeOneLine(speed);
             start = end;
             prePos = 0;
         }
     }
 
-    private static void write(OutputStream os, byte[] bs) throws IOException {
+    static int showLen;
 
-        write(os, bs, bs.length);
+    private static void writeOneLine(String str) {
+
+        if (showLen != 0) {
+            while (showLen-- > 0)
+                System.out.print("\b \b");
+        }
+        System.out.print(str);
+        showLen = str.length();
+    }
+
+    private static void write(String path, OutputStream os, byte[] bs) throws IOException {
+
+        write(path, os, bs, bs.length);
     }
 }
